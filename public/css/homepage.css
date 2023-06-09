@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color:  #f4f4f4;
+    color:  #555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.4em;
+    margin: 0;
+}
+  
+/* a:hover{
+    background-color: #538cc6;
+    border-radius: 2px;
+} */
+  
+  
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+  
+#main-header{
+    padding: 10px;
+    padding-right: 1200px;
+    font-family: system-ui;
+    text-align: left;
+    background-color: #538cc6;
+    color: #fff;
+}
+  
+#navbar{
+    font-family:system-ui;
+    font-size: 12px;
+    padding-top: 15px;
+    padding-left: 1050px;
+    text-align: right;
+    background-color: white;
+    color: white;
+}
+  
+#navbar ul{
+    padding: 0;
+    list-style: none;
+}
+  
+#navbar li{
+    display: inline;
+}
+  
+#navbar a{
+    color: #808080;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right:  15px;
+}
+  
+
+.swiper{
+    width: 100%;
+    height: auto;
+}
+  
+.swiper-slide img{
+    width: 100%;
+}
+  
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+    color: #e06706;
+}
+  
+.swiper .swiper-pagination-bullet-active{
+    background: #e06706;
+}
+  
+.hr-line2{
+      width: 98%;
+      margin: auto;
+}
+  
+footer{
+    font-family:system-ui;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+   
+    padding: 20px;
+    color: #fff;
+    background: #538cc6;
+}
+  
+h2{
+    font-weight: 600;
+    font-size: 17px;
+}
+  
+.box a{
+    color: #fff;
+}
+  
+  
+  
+  
+  
+  
