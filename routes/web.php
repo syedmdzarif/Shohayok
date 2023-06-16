@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use Illuminate\Support\Facades\Storage;     //for download
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +57,9 @@ Route::get("upload_content", [ContentController::class, 'upload']);
 
 Route::post("upload_backend", [ContentController::class, 'upload_backend']);
 
-Route::view('newsfeed', 'newsfeed');
+Route::get("newsfeed", [ContentController::class, 'show']);
+
+Route::get('download{file}', [ContentController::class, 'download']);
+
+Route::get("newsfeed{id}", [ContentController::class, 'view']);
 
