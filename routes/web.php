@@ -54,3 +54,7 @@ Route::get("logout", [UserController::class, 'user_logout']);
 
 Route::get("upload_content", [ContentController::class, 'upload']);
 
+Route::post("upload_backend", [ContentController::class, 'upload_backend']);
+
+Route::view('newsfeed', 'newsfeed');
+
