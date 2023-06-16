@@ -12,10 +12,11 @@
         <div class="left">
             
             <div class = "form_box">
-                <form>
+                <form action="login_user" method = "POST">
                     <!-- <div class="title">
                         <h2>Log In</h2>
                     </div> -->
+                    @csrf
                     
                     <p>Email</p>
                     <input type="text" placeholder="Enter your email" name="email"/>
@@ -23,11 +24,7 @@
                     
                     <p>Password</p>
                     <input type="password" placeholder="Enter your password" name="password"/>
-
-                    <!-- <div class= "forgot_pass">
-                        <a href="#"><text style="color:#666666; font-size: 11px; margin-left:80px">Forgot Password</text></a>
-                    </div -->
-                       
+  
                     <div class="create_account">
                         <a href="{{url('/signup')}}"><text style="color:#666666; font-size: 11px;">Create a new account for free!</text></a>
                     </div>

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Crypt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller
 {
@@ -26,5 +30,30 @@ class UserController extends Controller
 
         return redirect("homepage");
 
+    }
+    function user_login(Request $req){
+        $req->validate([
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+        $credentials = $req -> only('email', 'password');
+
+        if(Auth::attempt($credentials)){
+            // $data = $req -> input('email');
+            // $req -> session()->put('user', $data)
+            return redirect("profile_user");
+        }
+        else{
+            return redirect("login")->withSuccess("Login Details ");
+        }
+        
+
+    }
+
+    function user_logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect("login");
     }
 }
