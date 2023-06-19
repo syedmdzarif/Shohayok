@@ -12,10 +12,28 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-    function fetch_user(){
+    function fetch_user(Request $req){
+        // if(request()->query('search')){
+        //     // dd(request()->query('search'));
+        //     $data = User::where('name', 'LIKE', "%{$search}%")->paginate(4);
+        // }
+        // else{
+        //     $data = User::paginate(4);   
+        // }
+        // // $data = User::paginate(4);  //user is the name of the model    
+        // return view('view_users', ['users' => $data]);
         
-        $data = User::paginate(2);  //user is the name of the model  
-        return view('about_us', ['users' => $data]);
+        $search = $req->search;
+        if($search != ""){
+            $users = User::where('name', 'LIKE', "%$search%")->orWhere('institution', 'LIKE', "%$search%")->paginate(4);
+        }
+        else{
+            $users = User::paginate(4);
+
+        }
+        $data = compact('users', 'search');
+        return view('view_users')->with($data);
+
     }
 
     function create_user(Request $req){
@@ -72,4 +90,16 @@ class UserController extends Controller
         $data->save();
         return redirect('profile_user');
     }
+
+
+    // function search_users(Request $req){
+    //     if($req -> search){
+    //         search_users = User::where('name', 'LIKE', '%'. $req ->search. '%')->latest()->paginate(4);
+    //         return view()
+    //     }
+    //     else{
+
+    //     }
+
+    // }
 }

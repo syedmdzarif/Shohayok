@@ -43,8 +43,6 @@ Route::get('login_admin', function () {
 //     return view('about_us');
 // });
 
-Route::get("about_us", [UserController::class, 'fetch_user']);
-
 Route::post("signup", [UserController::class, 'create_user']);
 
 
@@ -76,3 +74,6 @@ Route::post('update_profile', [UserController::class, 'update_data']);
 Route::get('edit_content/{id}', [ContentController::class, 'show_data']);
 
 Route::post('edit_content', [ContentController::class, 'update_data']);
+
+Route::get("view_users", [UserController::class, 'fetch_user']);
+

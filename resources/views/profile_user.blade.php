@@ -8,6 +8,7 @@
 <a href="{{url('/newsfeed')}}">Newsfeed
 <a href="{{url('/upload_history')}}">Upload History
 <a href="{{'update_profile'}}">Update Profile
+<a href="{{url('/view_users')}}">Find People
 <a href="{{url('/logout')}}">Logout
 
 </html> 
