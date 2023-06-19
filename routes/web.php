@@ -61,5 +61,18 @@ Route::get("newsfeed", [ContentController::class, 'show']);
 
 Route::get('download{file}', [ContentController::class, 'download']);
 
-Route::get("newsfeed{id}", [ContentController::class, 'view']);
+// Route::get("newsfeed{id}", [ContentController::class, 'view']);
 
+Route::get("upload_history", [ContentController::class, 'show_specific_id']);
+
+Route::get('delete{id}', [ContentController::class, 'delete_content']);
+
+Route::get('update_profile', [UserController::class, 'show_data']);
+
+Route::post('update_profile', [UserController::class, 'update_data']);
+
+
+
+Route::get('edit_content/{id}', [ContentController::class, 'show_data']);
+
+Route::post('edit_content', [ContentController::class, 'update_data']);

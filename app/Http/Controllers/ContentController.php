@@ -33,10 +33,22 @@ class ContentController extends Controller
     function show(){
         // $data=Content::all();
         // return view('newsfeed', compact('data'));
-        $data = DB::table('contents')
+        $data = DB::table('contents')->select(
+            'contents.id as content_id',
+            'contents.user_id as content_user_id',
+            'contents.title as content_title',
+            'contents.description as content_description',
+            'contents.file as content_file',
+            'contents.created_at as content_created_at',
+            'contents.updated_at as content_updated_at',
+            'users.name as user_name',
+            'users.institution as user_institution'
+
+        )->join('users', 'contents.user_id', '=' , 'users.id')
         ->get();
+        
         return view('newsfeed', ['data' => $data]);
-    
+
     }
 
     function download(Request $request, $file){
@@ -45,9 +57,53 @@ class ContentController extends Controller
 
     }
 
-    function view($id){
-        $data = Content::find($id);
-        return view('newsfeed', compact('data_view'));
+    // function view($id){
+    //     $data = Content::find($id);
+    //     return view('newsfeed', compact('data_view'));
+
+    // }
+
+    function show_specific_id(){
+        // $data=Content::all();
+        // return view('newsfeed', compact('data'));
+        $data = DB::table('contents')->select(
+            'contents.id as content_id',
+            'contents.user_id as content_user_id',
+            'contents.title as content_title',
+            'contents.description as content_description',
+            'contents.file as content_file',
+            'contents.created_at as content_created_at',
+            'contents.updated_at as content_updated_at',
+            'users.name as user_name',
+            'users.institution as user_institution'
+
+        )->join('users', 'contents.user_id', '=' , 'users.id')
+        ->where('users.id', Auth::user()->id)
+        ->get();
+        
+        return view('upload_history', ['data' => $data]);
 
     }
+
+    function delete_content($id){
+        $data = Content::find($id);
+        $data->delete();
+        return redirect("upload_history");
+    }
+
+
+    function show_data($id){
+        $data = Content::find($id);
+        return view("edit_content", ['data' => $data]);
+        
+        }
+    
+        function update_data(Request $req){
+            $data = Content::find($req->id);
+            $data->title = $req->title;
+            $data->description = $req->description;
+            
+            $data->save();
+            return redirect('profile_user');
+        }
 }

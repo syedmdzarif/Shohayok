@@ -56,4 +56,20 @@ class UserController extends Controller
         Auth::logout();
         return redirect("login");
     }
+
+    function show_data(){
+    $data = User::find(Auth::user()->id);
+    return view("update_profile", ['data' => $data]);
+    }
+
+    function update_data(Request $req){
+        $data = User::find(Auth::user()->id);
+        $data->name = $req->name;
+        $data->email = $req->email;
+        $data->institution = $req->institution;
+        $data->password = $req->password;
+
+        $data->save();
+        return redirect('profile_user');
+    }
 }
