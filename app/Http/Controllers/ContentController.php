@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Content;
+use App\Models\Notification;
+use App\Models\User;
+use App\Models\Follower;
+use App\Models\Following;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;     //for download
@@ -27,6 +31,32 @@ class ContentController extends Controller
         $data->description=$req->description;
         
         $data->save();
+
+        // $user_name = DB::table('users')->select(
+        //     // 'followers.id as follower_id',
+        //     // 'followers.user_id as follower_user_id',
+        //     'name'
+        // )->where('users.id', '=', Auth::user()->id)
+        // ->get();
+
+
+        $followers = DB::table('followers')->select(
+            // 'followers.id as follower_id',
+            // 'followers.user_id as follower_user_id',
+            'followers.follower_id as follower_follower_id'
+        )->where('followers.user_id', '=', Auth::user()->id)
+        ->get();
+
+        foreach($followers as $follower){
+
+        $notification = new Notification();
+        $notification->user_id = $follower->follower_follower_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->message = 'New content uploaded by '. Auth::user()->name . ' titled "'. $req->title . '"';
+        $notification->save();
+
+        }
+        
         return redirect()->back();
     }
 
@@ -45,7 +75,11 @@ class ContentController extends Controller
             'users.institution as user_institution'
 
         )->join('users', 'contents.user_id', '=' , 'users.id')
+        ->join('followings', 'contents.user_id', '=', 'followings.following_id')
+        ->where('followings.user_id', '=', Auth::user()->id)
         ->get();
+
+        
         
         return view('newsfeed', ['data' => $data]);
 
