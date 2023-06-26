@@ -36,6 +36,17 @@ class UserController extends Controller
 
     }
 
+
+    function fetch_user_visit_profile($id){
+        
+        $users = User::find($id);
+        $data = compact('users');
+        // return view('view_profile')->with($data);
+      
+        return view("view_profile", ['users' => $data]);
+
+    }
+
     function create_user(Request $req){
 
         $user = new User;

@@ -77,3 +77,7 @@ Route::post('edit_content', [ContentController::class, 'update_data']);
 
 Route::get("view_users", [UserController::class, 'fetch_user']);
 
+
+
+Route::get("view_profile/{id}", [UserController::class, 'fetch_user_visit_profile']);
+

@@ -12,13 +12,13 @@
         </a>
     </form>
 
-
     <table border="1">
         <tr>
             <td>ID</td>
             <td>Name</td>
             <td>Email</td>
             <td>Institution</td>
+            <td>Action</td>
         </tr>
         @foreach($users as $user)
         <tr>
@@ -26,6 +26,7 @@
             <td>{{$user['name']}}</td>
             <td>{{$user['email']}}</td>
             <td>{{$user['institution']}}</td>
+            <td><a class="e_login" href="{{url('view_profile/'.$user->id)}}">Profile</a></td>
         </tr>
         @endforeach
     </table>
