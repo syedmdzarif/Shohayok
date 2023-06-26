@@ -1,4 +1,5 @@
 <html>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 
 <h1>

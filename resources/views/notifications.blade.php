@@ -2,6 +2,7 @@
 <h1>
 Notifications
 </h1>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 <table>
 @foreach($notifications as $notification)

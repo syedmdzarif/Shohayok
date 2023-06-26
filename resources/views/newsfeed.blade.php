@@ -1,5 +1,6 @@
 <html>
 <h1>newsfeed</h1>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 
     @foreach($data as $row)

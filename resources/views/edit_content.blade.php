@@ -1,6 +1,7 @@
 <html>
 
 <h1>Edit Content</h1>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 <form action="/edit_content" method="POST" class="form_box">
         

@@ -1,5 +1,6 @@
 <html>
 <h1>upload page</h1>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 <h3>{{\Auth::user()->name}}</h3>
 
 

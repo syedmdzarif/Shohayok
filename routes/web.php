@@ -95,3 +95,6 @@ Route::get("notifications", [NotificationController::class, 'fetch_notifications
 
 Route::get('notification_delete{id}', [NotificationController::class, 'delete_notification']);
 
+
+Route::get("find_content", [ContentController::class, 'show_search']);
+

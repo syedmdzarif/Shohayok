@@ -140,4 +140,46 @@ class ContentController extends Controller
             $data->save();
             return redirect('profile_user');
         }
+
+        function show_search(Request $req){
+            $search = $req->search;
+            if($search != ""){
+                $data = DB::table('contents')->select(
+                    'contents.id as content_id',
+                    'contents.user_id as content_user_id',
+                    'contents.title as content_title',
+                    'contents.description as content_description',
+                    'contents.file as content_file',
+                    'contents.created_at as content_created_at',
+                    'contents.updated_at as content_updated_at',
+                    'users.name as user_name',
+                    'users.institution as user_institution'
+        
+                )->join('users', 'contents.user_id', '=' , 'users.id')
+                ->where('contents.title', 'LIKE', "%$search%")
+                ->orWhere('contents.description', 'LIKE', "%$search%")
+                ->orWhere('users.name', 'LIKE', "%$search%")
+                ->orWhere('users.institution', 'LIKE', "%$search%")
+                ->get();
+            }
+            else{
+                $data = DB::table('contents')->select(
+                    'contents.id as content_id',
+                    'contents.user_id as content_user_id',
+                    'contents.title as content_title',
+                    'contents.description as content_description',
+                    'contents.file as content_file',
+                    'contents.created_at as content_created_at',
+                    'contents.updated_at as content_updated_at',
+                    'users.name as user_name',
+                    'users.institution as user_institution'
+        
+                )->join('users', 'contents.user_id', '=' , 'users.id')
+                ->get();
+    
+            }
+            $data = compact('data', 'search');
+            return view('find_content')->with($data);
+
+        }
 }
