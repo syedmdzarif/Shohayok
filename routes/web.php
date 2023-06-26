@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Storage;     //for download
 
 /*
@@ -80,4 +82,16 @@ Route::get("view_users", [UserController::class, 'fetch_user']);
 
 
 Route::get("view_profile/{id}", [UserController::class, 'fetch_user_visit_profile']);
+
+Route::get("add_following/{id}", [FollowController::class, 'add_following']);
+
+Route::get("add_follower/{id}", [FollowController::class, 'add_follower']);
+
+Route::get("remove_following/{id}", [FollowController::class, 'remove_following']);
+
+Route::get("remove_follower/{id}", [FollowController::class, 'remove_follower']);
+
+Route::get("notifications", [NotificationController::class, 'fetch_notifications']);
+
+Route::get('notification_delete{id}', [NotificationController::class, 'delete_notification']);
 

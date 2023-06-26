@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Content;
-use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -34,7 +34,6 @@ class UserController extends Controller
         }
         $data = compact('users', 'search');
         return view('view_users')->with($data);
-
     }
 
 
@@ -53,11 +52,15 @@ class UserController extends Controller
             'contents.file as content_file',
             'contents.created_at as content_created_at',
             'contents.updated_at as content_updated_at',
+            'users.id as user_id',
             'users.name as user_name',
             'users.email as user_email',
-            'users.institution as user_institution'
+            'users.institution as user_institution',
+         
+           
 
         )->join('users', 'contents.user_id', '=' , 'users.id')
+      
         ->where('users.id', $id)
         ->get();
       
@@ -68,12 +71,21 @@ class UserController extends Controller
     function create_user(Request $req){
 
         $user = new User;
+
         $user->name = $req->name;
         $user->email = $req->email;
         $user->institution = $req->institution;
         $user->password = $req->password;
 
+        // $following = new Following;
+
+       
+
         $user->save();
+
+        // $following->user_id = $user->id;
+        
+        // $following->save();
 
         return redirect("homepage");
 
