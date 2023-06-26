@@ -1,6 +1,7 @@
 <html>
 <body>
     <h1>View Users</h1>
+    <a class="e_login" href="{{url('profile_user')}}">Home</a>
 
     <form action={{'view_users'}} >
         <label> Search </label>

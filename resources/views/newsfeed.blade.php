@@ -1,10 +1,11 @@
 <html>
 <h1>newsfeed</h1>
+<a class="e_login" href="{{url('profile_user')}}">Home</a>
 
-
+    <table>
     @foreach($data as $row)
     
-    <table>
+
 
         <tr>
         <td>{{$row->content_title}}</td>
@@ -20,9 +21,10 @@
         <td><a href="{{url('/download'. $row->content_file)}}">Download</a></td>
         </tr>
 
-    </table>
+
 
     @endforeach
+    </table>
 
   
 
