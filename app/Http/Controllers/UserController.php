@@ -7,6 +7,7 @@ use Crypt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Content;
 use Illuminate\Support\Facades\Session;
 
 
@@ -39,11 +40,28 @@ class UserController extends Controller
 
     function fetch_user_visit_profile($id){
         
-        $users = User::find($id);
-        $data = compact('users');
+        // $users = User::find($id);
+        // $contents = Content::all()->where('user_id', $id);
+        // $data = compact('users');
         // return view('view_profile')->with($data);
+
+        $data = DB::table('contents')->select(
+            'contents.id as content_id',
+            'contents.user_id as content_user_id',
+            'contents.title as content_title',
+            'contents.description as content_description',
+            'contents.file as content_file',
+            'contents.created_at as content_created_at',
+            'contents.updated_at as content_updated_at',
+            'users.name as user_name',
+            'users.email as user_email',
+            'users.institution as user_institution'
+
+        )->join('users', 'contents.user_id', '=' , 'users.id')
+        ->where('users.id', $id)
+        ->get();
       
-        return view("view_profile", ['users' => $data]);
+        return view("view_profile", ['data' => $data]);
 
     }
 
