@@ -9,6 +9,19 @@ Notifications
         <tr>
             <td>{{$notification->message}}</td>
             <td>{{$notification->created_at}}</td>
+            <?php
+                if($notification->type == 'content'){
+            ?>
+            <td><a href={{'view_notification_content/'.$notification->id}}>View</a></td>
+            <?php
+                }
+                else{
+            ?>
+            <td><a href={{'course_notification_view/'.$notification->id}}>View</a></td>
+            <?php
+
+                }
+            ?>
             <td><a href={{'notification_delete'.$notification->id}}>Delete</a></td>
             
         </tr>

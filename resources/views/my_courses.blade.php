@@ -10,6 +10,7 @@
     <td>{{$row->course_description}}</td>
 
     <td><a href="{{'course_content_upload/'.$row->course_id}}">Upload Content</a></td>
+    
 
   
     </tr>

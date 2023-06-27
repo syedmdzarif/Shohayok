@@ -118,3 +118,8 @@ Route::get("course_content_upload/{id}", [CourseController::class, 'course_conte
 
 Route::post("course_content_upload_backend/{id}", [CourseController::class, 'course_content_upload_backend']);
 
+Route::get("view_notification_content/{id}", [NotificationController::class, 'view_notification_content']);
+
+Route::get("course_notification_view/{id}", [NotificationController::class, 'course_notification_view']);
+
+

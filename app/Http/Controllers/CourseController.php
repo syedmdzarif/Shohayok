@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Course_Content;
+use App\Models\Notification;
 use App\Models\Course_Subscription;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -175,9 +176,32 @@ class CourseController extends Controller
         // ->get();
 
 
-        
+        $learners = DB::table('course__subscriptions')->select(
+            
+            'course__subscriptions.learner_id as course__subscription_learner_id',
+        )->where('course__subscriptions.course_id', '=', $course_id)
+        ->get();
+
+        $course_title = DB::table('courses')->select(
+            'courses.title as course_title',
+        )->where('courses.id', '=', $course_id)
+        ->value('title');
+
+        foreach($learners as $learner){
+
+        $notification = new Notification();
+        $notification->user_id = $learner->course__subscription_learner_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->message = 'New content uploaded to the course "'.$course_title. '" by '. Auth::user()->name . ' titled "'. $req->title . '"';
+        $notification->content_id = $data->id;
+        $notification->type = 'course';
+        $notification->save();
+
+        }
         
         return redirect()->back();
         
     }
+
+    
 }
