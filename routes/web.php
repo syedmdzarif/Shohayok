@@ -135,3 +135,6 @@ Route::post('edit_course_content', [CourseController::class, 'update_data']);
 Route::get('course_content_delete{id}', [CourseController::class, 'course_content_delete']);
 
 
+Route::get('view_enrolled_course/{id}', [CourseController::class, 'view_enrolled_course']);
+
+

@@ -248,5 +248,25 @@ class CourseController extends Controller
             return redirect("view_course_contents_specific");
         }
 
-    
+
+        function view_enrolled_course($id){
+        
+            $data = DB::table('course__contents')->select(
+            'course__contents.id as content_id',
+            'course__contents.user_id as content_user_id',
+            'course__contents.title as content_title',
+            'course__contents.description as content_description',
+            'course__contents.file as content_file',
+            'course__contents.created_at as content_created_at',
+            'course__contents.updated_at as content_updated_at',
+            'users.name as user_name',
+            'users.institution as user_institution'
+
+            )->join('users', 'course__contents.user_id', '=' , 'users.id')
+            ->where('course__contents.course_id', $id)
+            ->get();
+            
+            return view('view_enrolled_course', ['data' => $data]);
+
+        }
 }

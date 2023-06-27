@@ -12,7 +12,7 @@
     <td>{{$row->course_teacher_institution}}</td>
     <td>{{$row->course_description}}</td>
 
-    <td><a class="e_login" href="{{url('course_content/'.$row->course_id)}}">Open</a></td>
+    <td><a class="e_login" href="{{url('view_enrolled_course/'.$row->course_id)}}">Open</a></td>
     </tr>
 
     @endforeach
