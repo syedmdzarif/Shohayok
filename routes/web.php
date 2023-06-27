@@ -3,6 +3,7 @@
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Storage;     //for download
@@ -97,4 +98,43 @@ Route::get('notification_delete{id}', [NotificationController::class, 'delete_no
 
 
 Route::get("find_content", [ContentController::class, 'show_search']);
+
+Route::get("create_course", [CourseController::class, 'create_course']);
+Route::post("create_course_backend", [CourseController::class, 'create_course_backend']);
+
+
+Route::get("find_course", [CourseController::class, 'show_search']);
+
+Route::get("payment_course/{id}", [CourseController::class, 'payment_info']);
+
+Route::get("course_enroll/{id}", [CourseController::class, 'course_enroll']);
+
+Route::get("enrolled_courses", [CourseController::class, 'show']);
+
+
+Route::get("my_courses", [CourseController::class, 'show_my_courses']);
+
+Route::get("course_content_upload/{id}", [CourseController::class, 'course_content_upload']);
+
+Route::post("course_content_upload_backend/{id}", [CourseController::class, 'course_content_upload_backend']);
+
+Route::get("view_notification_content/{id}", [NotificationController::class, 'view_notification_content']);
+
+Route::get("course_notification_view/{id}", [NotificationController::class, 'course_notification_view']);
+
+
+
+
+Route::get('view_course_contents_specific', [CourseController::class, 'show_specific_id']);
+
+Route::get('edit_course_content/{id}', [CourseController::class, 'show_data']);
+
+Route::post('edit_course_content', [CourseController::class, 'update_data']);
+
+
+Route::get('course_content_delete{id}', [CourseController::class, 'course_content_delete']);
+
+
+Route::get('view_enrolled_course/{id}', [CourseController::class, 'view_enrolled_course']);
+
 

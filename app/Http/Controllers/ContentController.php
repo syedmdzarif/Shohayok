@@ -22,7 +22,8 @@ class ContentController extends Controller
     function upload_backend(Request $req){
         $data = new Content();
         $file=$req->file;
-        $filename=time().'.'.$file->getClientOriginalExtension();
+        
+        $filename= $req->title.'_'.time().'.'.$file->getClientOriginalExtension();
         $req->file->move('assets', $filename);
         $data->file=$filename;
 
@@ -53,6 +54,8 @@ class ContentController extends Controller
         $notification->user_id = $follower->follower_follower_id;
         $notification->uploader_id = Auth::user()->id;
         $notification->message = 'New content uploaded by '. Auth::user()->name . ' titled "'. $req->title . '"';
+        $notification->content_id = $data->id;
+        $notification->type = 'content';
         $notification->save();
 
         }
@@ -90,6 +93,8 @@ class ContentController extends Controller
         return response()->download(public_path('assets/'.$file));
 
     }
+
+   
 
     // function view($id){
     //     $data = Content::find($id);
