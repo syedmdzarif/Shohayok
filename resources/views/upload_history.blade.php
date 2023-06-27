@@ -1,10 +1,10 @@
 <html>
     <h1>upload history</h1>
     <a class="e_login" href="{{url('profile_user')}}">Home</a>
-
+    <table>
     @foreach($data as $row)
     
-    <table>
+
 
         <tr>
         <td>{{$row->content_title}}</td>
@@ -23,9 +23,10 @@
         <td><a href={{'edit_content/'.$row->content_id}}>Edit Post</a></td>
         </tr>
 
-    </table>
+    
 
     @endforeach
+    </table>
 
 
 </html>
