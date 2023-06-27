@@ -157,7 +157,7 @@ class CourseController extends Controller
 
         $data = new Course_Content();
         $file=$req->file;
-        $filename=time().'.'.$file->getClientOriginalExtension();
+        $filename=$req->title.'_'.time().'.'.$file->getClientOriginalExtension();
         $req->file->move('assets', $filename);
         $data->file=$filename;
 
