@@ -203,5 +203,50 @@ class CourseController extends Controller
         
     }
 
+
+    function show_specific_id(){
+        // $data=Content::all();
+        // return view('newsfeed', compact('data'));
+        $data = DB::table('course__contents')->select(
+            'course__contents.id as content_id',
+            'course__contents.user_id as content_user_id',
+            'course__contents.title as content_title',
+            'course__contents.description as content_description',
+            'course__contents.file as content_file',
+            'course__contents.created_at as content_created_at',
+            'course__contents.updated_at as content_updated_at',
+            'users.name as user_name',
+            'users.institution as user_institution'
+
+        )->join('users', 'course__contents.user_id', '=' , 'users.id')
+        ->where('users.id', Auth::user()->id)
+        ->get();
+        
+        return view('view_course_contents_specific', ['data' => $data]);
+
+    }
+
+    function show_data($id){
+        $data = Course_Content::find($id);
+        return view("edit_course_content", ['data' => $data]);
+        
+        }
+    
+        function update_data(Request $req){
+            $data = Course_Content::find($req->id);
+            $data->title = $req->title;
+            $data->description = $req->description;
+            
+            $data->save();
+            return redirect('profile_user');
+        }
+
+
+        function course_content_delete($id){
+            $data = Course_Content::find($id);
+            $data->delete();
+            return redirect("view_course_contents_specific");
+        }
+
     
 }

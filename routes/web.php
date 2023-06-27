@@ -123,3 +123,15 @@ Route::get("view_notification_content/{id}", [NotificationController::class, 'vi
 Route::get("course_notification_view/{id}", [NotificationController::class, 'course_notification_view']);
 
 
+
+
+Route::get('view_course_contents_specific', [CourseController::class, 'show_specific_id']);
+
+Route::get('edit_course_content/{id}', [CourseController::class, 'show_data']);
+
+Route::post('edit_course_content', [CourseController::class, 'update_data']);
+
+
+Route::get('course_content_delete{id}', [CourseController::class, 'course_content_delete']);
+
+
