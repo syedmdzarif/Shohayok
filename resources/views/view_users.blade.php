@@ -16,6 +16,7 @@
     <table border="1">
         <tr>
             <td>ID</td>
+            <td>Profile Picture</td>
             <td>Name</td>
             <td>Email</td>
             <td>Institution</td>
@@ -24,6 +25,23 @@
         @foreach($users as $user)
         <tr>
             <td>{{$user['id']}}</td>
+
+            <td>
+                <?php 
+                if($user['profile_picture'] == ""){
+                ?>
+                <img height="200px" width="200px" src=' /assets/profile_pictures/default_pfp.png'> </img>
+                <?php
+
+                }
+                else{
+                ?>
+                <img height="200px" width="200px" src=' /assets/profile_pictures/{{$user['profile_picture']}}'> </img>
+                <?php
+                }
+                ?>
+            </td>
+
             <td>{{$user['name']}}</td>
             <td>{{$user['email']}}</td>
             <td>{{$user['institution']}}</td>

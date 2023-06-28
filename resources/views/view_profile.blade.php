@@ -2,16 +2,43 @@
 <a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 
-<h1>
+
+
+
+
+
+
+
 
 @foreach($data as $row)
 
+
+<?php 
+if($data[0]->user_profile_picture == ""){
+?>
+<img height="240px" width="240px" src=' /assets/profile_pictures/default_pfp.png'> </img>
+<?php
+
+}
+else{
+?>
+<img height="240px" width="240px" src=' /assets/profile_pictures/{{$data[0]->user_profile_picture}}'> </img>
+<?php
+}
+?>
+
+
+<h1>
 {{$data[0]->user_name}}
 <br>
 {{$data[0]->user_email}}
 <br>
 {{$data[0]->user_institution}}
+</h1>
+
+
 <br>
+
 
 
 <button><a href="{{url('add_following/'.$data[0]->user_id)}}">Follow</a><a href="{{url('remove_following/'.$data[0]->user_id)}}">/Unfollow</a></button>
@@ -27,11 +54,13 @@ break;
 @endforeach
 
 
-</h1>
+
+
+<table>
 
 @foreach($data as $row)
     
-    <table>
+ 
 
         <tr>
         <td>{{$row->content_title}}</td>
@@ -46,7 +75,9 @@ break;
         <td><a href="{{url('/download'. $row->content_file)}}">Download</a></td>
         </tr>
 
-    </table>
+
 
     @endforeach
+
+    </table>
 </html>
