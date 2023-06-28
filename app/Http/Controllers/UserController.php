@@ -87,7 +87,7 @@ class UserController extends Controller
         
         // $following->save();
 
-        return redirect("homepage");
+        return redirect("welcome");
 
     }
     function user_login(Request $req){
@@ -122,7 +122,15 @@ class UserController extends Controller
     }
 
     function update_data(Request $req){
+        
         $data = User::find(Auth::user()->id);
+
+        $profile_picture=$req->profile_picture;
+        
+        $pfp_name= Auth::user()->name.'_'.time().'.'.$profile_picture->getClientOriginalExtension();
+        $req->profile_picture->move('assets/profile_pictures', $pfp_name);
+        $data->profile_picture=$pfp_name;
+
         $data->name = $req->name;
         $data->email = $req->email;
         $data->institution = $req->institution;

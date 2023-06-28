@@ -3,6 +3,29 @@
 {{\Auth::user()->id}}
 {{\Auth::user()->name}}
 {{\Auth::user()->institution}}
+{{\Auth::user()->profile_picture}}
+
+<!-- pfp start -->
+
+<?php
+$profile_picture = Auth::user()->profile_picture;
+?>
+
+<?php
+if($profile_picture == ""){
+?>
+<img height="240px" width="240px" src=' /assets/profile_pictures/default_pfp.png'> </img>
+<?php
+}
+else{
+?>
+<img height="240px" width="240px" src=' /assets/profile_pictures/{{$profile_picture}}'> </img>
+<?php
+}
+?>
+
+<!-- pfp end -->
+
 
 <br>
 <br>
