@@ -2,14 +2,6 @@
 <a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 
-
-
-
-
-
-
-
-
 @foreach($data as $row)
 
 
@@ -38,7 +30,6 @@ else{
 
 
 <br>
-
 
 
 <button><a href="{{url('add_following/'.$data[0]->user_id)}}">Follow</a><a href="{{url('remove_following/'.$data[0]->user_id)}}">/Unfollow</a></button>

@@ -146,3 +146,6 @@ Route::get('support_remove/{id}', [SupporterController::class, 'support_remove']
 Route::post('create_support', [SupporterController::class, 'create_support']);
 
 
+Route::get('profile_info', [UserController::class, 'profile_info']);
+
+

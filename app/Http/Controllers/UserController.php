@@ -33,6 +33,13 @@ class UserController extends Controller
 
         }
         $data = compact('users', 'search');
+
+
+
+        
+
+
+
         return view('view_users')->with($data);
     }
 
@@ -102,7 +109,43 @@ class UserController extends Controller
         if(Auth::attempt($credentials)){
             // $data = $req -> input('email');
             // $req -> session()->put('user', $data)
-            return redirect("profile_user");
+
+            $followers = DB::table('users')->select(
+                'users.id as follower_id',
+                'users.name as follower_name',
+            )
+            ->join('followers', 'followers.follower_id', '=', 'users.id')
+            ->where('followers.user_id' , Auth::user()->id)
+            ->get();
+
+            $followings = DB::table('users')->select(
+                'users.id as following_id',
+                'users.name as following_name',
+            )
+            ->join('followings', 'followings.following_id', '=', 'users.id')
+            ->where('followings.user_id' , Auth::user()->id)
+            ->get();
+
+
+            $subscribers = DB::table('users')->select(
+                'users.id as subscriber_id',
+                'users.name as subscriber_name',
+                'supporters.fee as subscriber_fee'
+            )
+            ->join('supporters', 'supporters.subscriber_id', '=', 'users.id')
+            ->where('supporters.subscribed_to_id' , Auth::user()->id)
+            ->get();
+
+            $subscribed_to = DB::table('users')->select(
+                'users.id as subscribed_to_id',
+                'users.name as subscribed_to_name',
+                'supporters.fee as subscribed_to_fee'
+            )
+            ->join('supporters', 'supporters.subscribed_to_id', '=', 'users.id')
+            ->where('users.id' , Auth::user()->id)
+            ->get();
+
+            return view("profile_user", compact('followers', 'subscribers', 'followings', 'subscribed_to'));
         }
         else{
             return redirect("login")->withSuccess("Login Details ");
@@ -152,4 +195,44 @@ class UserController extends Controller
     //     }
 
     // }
+
+
+    function profile_info(){
+        $followers = DB::table('users')->select(
+            'users.id as follower_id',
+            'users.name as follower_name',
+        )
+        ->join('followers', 'followers.follower_id', '=', 'users.id')
+        ->where('followers.user_id' , Auth::user()->id)
+        ->get();
+
+        $followings = DB::table('users')->select(
+            'users.id as following_id',
+            'users.name as following_name',
+        )
+        ->join('followings', 'followings.following_id', '=', 'users.id')
+        ->where('followings.user_id' , Auth::user()->id)
+        ->get();
+
+
+        $subscribers = DB::table('users')->select(
+            'users.id as subscriber_id',
+            'users.name as subscriber_name',
+            'supporters.fee as subscriber_fee'
+        )
+        ->join('supporters', 'supporters.subscriber_id', '=', 'users.id')
+        ->where('supporters.subscribed_to_id' , Auth::user()->id)
+        ->get();
+
+        $subscribed_to = DB::table('users')->select(
+            'users.id as subscribed_to_id',
+            'users.name as subscribed_to_name',
+            'supporters.fee as subscribed_to_fee'
+        )
+        ->join('supporters', 'supporters.subscribed_to_id', '=', 'users.id')
+        ->where('users.id' , Auth::user()->id)
+        ->get();
+
+        return view("profile_info", compact('followers', 'subscribers', 'followings', 'subscribed_to'));
+    }
 }

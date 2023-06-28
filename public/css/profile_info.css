@@ -1,0 +1,286 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: system-ui;
+    
+
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+   
+}
+  
+#main-header{
+    padding: 26px;
+    padding-right: 1300px;
+    text-align: left;
+    background-color: #538cc6;
+    color: #fff;
+}
+
+body{
+    background-color: white;
+    color: rgb(58, 58, 58);
+    
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-right: 2px solid rgb(222, 222, 222);
+ 
+}
+
+.wrapper .sidebar h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+.wrapper .sidebar ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.wrapper .sidebar ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.wrapper .sidebar ul li a .fa-solid{
+    /* width: 200px; */
+
+}
+
+.wrapper .sidebar ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+/* .wrapper .sidebar ul li:hover a{
+    background: rgb(0, 0, 0);
+} */
+
+
+
+
+.pfp_box{
+    float: left;
+   
+}
+
+.details_box{
+    float:right;
+    margin-right: 60px;
+    margin-left: 40px;
+    width: 560px;
+    color: rgb(58, 58, 58);
+}
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.info_class{
+    display: flex;
+    position: relative;
+    overflow: auto;
+}
+
+.info_class .info{
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-left: 2px solid rgb(222, 222, 222);
+    overflow: auto;
+}
+
+.info_class .info h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+
+.info_class .info ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.info_class .info ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.info_class .info ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+.main_content{
+    margin-left: 340px;
+    margin-top: 40px;
+    
+}
+
+
+.content_left{
+    float:left;
+    width: 50%;
+    
+    
+    
+}
+
+.content_right{
+    float:right;
+    margin-right: 100px;
+    width: 50%;
+ 
+}
+
+.content_left_left{
+    float:left;
+    width: 200px;
+    position: fixed;
+    
+    
+    
+}
+
+.content_left_right{
+    float:right;
+    margin-left: 280px;
+    width: 200px;
+    position: fixed;
+}
+
+.content_right_left{
+    float:left;
+    
+    margin-left: 60px;
+    width: 200px;
+    position: fixed;
+    
+}
+
+.content_right_right{
+    float:right;
+    margin-left: 340px;
+    width: 200px;
+    
+    position: fixed;
+    
+}
+
+
+.content_left .content_left_left ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.content_left .content_left_left ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.content_left .content_left_left ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+
+
+
+.content_left .content_left_right ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.content_left .content_left_right ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.content_left .content_left_right ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+
+
+.content_right .content_right_left ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.content_right .content_right_left ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.content_right .content_right_left ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+
+
+
+
+.content_right .content_right_right ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.content_right .content_right_right ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.content_right .content_right_right ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+
+
+
