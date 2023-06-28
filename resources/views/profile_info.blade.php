@@ -47,12 +47,11 @@
             <h3>Followers</h3>
             <br>
             <ul>
+                @foreach($followers as $follower)
                 <li>
-                    <a href="">aga</a>
+                <a class="e_login" href="{{url('view_profile/'.$follower->follower_id)}}">{{$follower->follower_name}}</a>
                 </li>   
-                <li>
-                    <a href="">aga</a>
-                </li> 
+                @endforeach
 
             </ul>
         
@@ -63,12 +62,11 @@
             <h3>Followings</h3>
             <br>
             <ul>
+                @foreach($followings as $following)
                 <li>
-                    <a href="">aga</a>
+                <a class="e_login" href="{{url('view_profile/'.$following->following_id)}}">{{$following->following_name}}</a>
                 </li>   
-                <li>
-                    <a href="">aga</a>
-                </li> 
+                @endforeach
 
             </ul>
 
@@ -82,13 +80,13 @@
         <div class="content_right_left">
             <h3>Subscribers</h3>
             <br>
+            
             <ul>
+                @foreach($subscribers as $subscriber)
                 <li>
-                    <a href="">agahrdhrehererr</a>
+                <a class="e_login" href="{{url('view_profile/'.$subscriber->subscriber_id)}}">{{$subscriber->subscriber_name}} ({{$subscriber->subscriber_fee}}.00 BDT)</a>
                 </li>   
-                <li>
-                    <a href="">aga</a>
-                </li> 
+                @endforeach
 
             </ul>
            
@@ -99,16 +97,13 @@
             <h3>Subscriptions</h3>
             <br>
             <ul>
+                @foreach($subscribed_to as $sb_to)
                 <li>
-                    <a href="">aga</a>
+                <a class="e_login" href="{{url('view_profile/'.$sb_to->subscribed_to_id)}}">{{$sb_to->subscribed_to_name}} ({{$sb_to->subscribed_to_fee}}.00 BDT)</a> 
                 </li>   
-                <li>
-                    <a href="">aga</a>
-                </li> 
+                @endforeach
 
             </ul>
-
-      
 
         </div>
     

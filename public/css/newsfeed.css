@@ -5,6 +5,7 @@
     list-style: none;
     text-decoration: none;
     font-family: system-ui;
+
     
 
 }
@@ -21,17 +22,24 @@
     text-align: left;
     background-color: #538cc6;
     color: #fff;
+    position: relative;
+    
 }
 
 body{
     background-color: white;
     color: rgb(58, 58, 58);
+    overflow: hidden;
+
+    
     
 }
 
 .wrapper{
     display: flex;
-    position: relative;
+ 
+    overflow: hidden;
+    
 }
 
 .wrapper .sidebar{
@@ -43,6 +51,7 @@ body{
     padding-right: 50px;
     padding-top: 30px;
     border-right: 2px solid rgb(222, 222, 222);
+    overflow: hidden;
  
 }
 
@@ -60,6 +69,8 @@ body{
 
 
 }
+
+
 
 .wrapper .sidebar ul li a{
     color:rgb(76, 76, 76);
@@ -83,10 +94,47 @@ body{
 
 .main_content{
     float:left;
+   
+    margin-left: 300px;
     
-    margin-left: 340px;
-    margin-top: 40px;
+    padding-right: 40px;
+    position: relative;
+  
+    
+    
 }
+
+.feed{
+    float:left;
+    height: 650px;
+    overflow: auto;
+    position: relative;
+    padding:40px;
+    
+    
+}
+.box_each{
+    
+    padding-bottom: 40px;
+}
+
+
+
+
+.img{
+    float:left;
+    
+}
+
+
+
+.details{
+    float: right;
+    margin-left: 40px;
+    
+}
+
+
 
 .pfp_box{
     float: left;
@@ -128,6 +176,7 @@ body{
     padding-top: 30px;
     border-left: 2px solid rgb(222, 222, 222);
     overflow: auto;
+    
 }
 
 .info_class .info h2{
@@ -156,4 +205,25 @@ body{
     background: rgb(222, 222, 222);
 }
 
+.content_table {
 
+    
+}
+
+
+/* .news{
+    margin-left: 400px;
+    margin-top: 200px;
+    height: 20px;
+    border: 2px solid black;
+    width: 400px;
+    overflow: auto;
+} */
+
+
+
+
+
+.users{
+    float:right
+}

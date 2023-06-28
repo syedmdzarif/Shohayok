@@ -51,12 +51,12 @@ $profile_picture = Auth::user()->profile_picture;
 <?php
 if($profile_picture == ""){
 ?>
-<img height="240px" width="220px" src=' /assets/profile_pictures/default_pfp.png'> </img>
+<img height="220px" width="200px" src=' /assets/profile_pictures/default_pfp.png'> </img>
 <?php
 }
 else{
 ?>
-<img height="240px" width="220px" src=' /assets/profile_pictures/{{$profile_picture}}'> </img>
+<img height="220px" width="200px" src=' /assets/profile_pictures/{{$profile_picture}}'> </img>
 <?php
 }
 ?>
@@ -83,10 +83,10 @@ else{
         <h2>Profile Information</h2>
         <ul>
         <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-user"></i> Followers</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-user"></i> Followings</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-money-bill"></i> Subscribers</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-money-bill"></i> Subscriptions</a></li>
-</ul>
+        <li><a href="{{url('profile_info')}}"><i class="fa-regular fa-user"></i> Followings</a></li>
+        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-dollar-sign"></i> Subscribers</a></li>
+        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-dollar-sign"></i> Subscriptions</a></li>
+        </ul>
     </div>
 
 </div>
