@@ -18,7 +18,7 @@
 
 <button><a href="{{url('add_follower/'.$data[0]->user_id)}}">Notifications</a><a href="{{url('remove_follower/'.$data[0]->user_id)}}">/Stop Notifications</a></button>
 
-
+<button><a href="{{url('support_form/'.$data[0]->user_id)}}">Subscribe</a><a href="{{url('support_remove/'.$data[0]->user_id)}}">/Unsubscribe</a></button>
 <?php
 break;
 

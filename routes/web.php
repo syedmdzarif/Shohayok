@@ -4,6 +4,7 @@ use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Storage;     //for download
@@ -136,5 +137,12 @@ Route::get('course_content_delete{id}', [CourseController::class, 'course_conten
 
 
 Route::get('view_enrolled_course/{id}', [CourseController::class, 'view_enrolled_course']);
+
+
+Route::get('support_form/{id}', [SupporterController::class, 'support_form']);
+
+Route::get('support_remove/{id}', [SupporterController::class, 'support_remove']);
+
+Route::post('create_support', [SupporterController::class, 'create_support']);
 
 
