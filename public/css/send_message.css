@@ -17,7 +17,7 @@
 }
   
 #main-header{
-    padding: 26px;
+    padding: 16px;
     padding-right: 1300px;
     text-align: left;
     background-color: #538cc6;
@@ -106,14 +106,15 @@ body{
 
 .feed{
     float:left;
-    height: 650px;
+    height: 670px;
     overflow: auto;
     position: relative;
     padding-left:40px;
     padding-right:40px;
     padding-bottom:40px;
-    padding-top:30px;
+    padding-top:40px;
     width:900px;
+    display:flex; flex-direction:column-reverse;
     
     
 }
@@ -271,4 +272,23 @@ button:hover{
 	opacity: .7;
 	background: #538cc6;
 	color: #fff;
+}
+
+.from{
+    color: #538cc6;
+}
+
+.to{
+color: #c65353;
+}
+
+.row_1{
+    background-color:rgb(234, 234, 234);
+    width: 820px;
+}
+
+.row_2{
+    background-color:rgb(240, 240, 240);
+    width: 820px;
+}
 }

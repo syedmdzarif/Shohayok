@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/send_message.css">
-    <title>Newsfeed</title>
+    <title>Conversation</title>
 </head>
 <body>
 
@@ -18,13 +18,14 @@
 
 <div class="wrapper">
     <div class="sidebar">
-        <h2>News Feed</h2>
+        <h2>Conversation</h2>
         <ul>
             <li><a href="{{url('/profile_user')}}"><i class="fa-solid fa-house"></i> Home</a></li>
             <li><a href="{{url('/upload_content')}}"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Content</a></li>
             <li><a href="{{url('/newsfeed')}}"><i class="fa-solid fa-square-rss"></i> Newsfeed</a></li>
             <li><a href="{{url('/find_content')}}"><i class="fa-solid fa-magnifying-glass"></i> Find Content</li>
             <li><a href="{{url('/upload_history')}}"><i class="fa-solid fa-file"></i> Upload History</li>
+            <li><a href="{{url('/chat')}}"><i class="fa-solid fa-comment"></i> Chat</a></li>
             <li><a href="{{'update_profile'}}"><i class="fa-solid fa-user"></i> Update Profile</li>
             <li><a href="{{url('/view_users')}}"><i class="fa-solid fa-magnifying-glass"></i> Find People</li>
             <li><a href="{{url('/notifications')}}"><i class="fa-sharp fa-solid fa-bell fa-shake"></i> Notifications</li>
@@ -41,9 +42,7 @@
 
         <div class="feed">
 
-            <h2>{{$r_name[0]->other_name}}</h2>
-            <br>
-      
+            
 
   
 
@@ -56,8 +55,8 @@
                                         if($row->r_id == Auth::user()->id){
                                     ?>
                                     
-                                        <td>
-                                                <b>{{$r_name[0]->other_name}}:</b><label class = "time"> &nbsp&nbsp{{$row->time}} </label><br> {{$row->message}} 
+                                        <td class="row_1">
+                                                <b><label class="to">{{$r_name[0]->other_name}}:</label></b><label class = "time"> &nbsp&nbsp{{$row->time}} </label><br> {{$row->message}} 
                                                 <br> 
                                                 <?php
                                                 if ($row->file != ""){
@@ -79,8 +78,9 @@
 
                                         else{
                                             ?>
-                                            <div class="msg_right">
-                                        <td><b>You:</b> &nbsp&nbsp<label class = "time">{{$row->time}}</label> <br> {{$row->message}}
+                                            
+                                            <td class="row_2">
+                                            <b><label class="from">You:</label></b> &nbsp&nbsp<label class = "time">{{$row->time}}</label> <br> {{$row->message}}
                                             <br> 
                                             <?php
                                             if ($row->file != ""){
@@ -109,7 +109,7 @@
                     </table>
 
 
-                   
+                    
 
          </div>
 
@@ -117,7 +117,10 @@
 
          <div class="info_class">
             <div class="info">
-                <h2>Send Message</h2> 
+
+                <h2> {{$r_name[0]->other_name}}</h2>
+            
+      
                 
                 <form action="{{url('/send_message_backend')}}" method="post" enctype="multipart/form-data">
 
@@ -126,7 +129,7 @@
                     <input type="text" name="message" placeholder="Type in your message">
                     <input type="file" name="file">
 
-                    <button type="submit">Send</button>
+                    <button type="submit">Send Message</button>
 
                 <form>
             </div>

@@ -7,6 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Follower;
 use App\Models\Following;
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\Content;
 use App\Models\Message;
@@ -14,7 +15,7 @@ use App\Models\Message;
 class MessageController extends Controller
 {
     function fetch_users(){
-        $users = DB::table('users')->select(
+        $followings = DB::table('users')->select(
             'users.id as user_id',
             'users.name as user_name',
             'users.institution as user_institution',
@@ -25,7 +26,19 @@ class MessageController extends Controller
         ->where('followings.user_id' , Auth::user()->id)
         ->get();
 
-        return view('chat', compact('users'));  
+        $followers = DB::table('users')->select(
+            'users.id as user_id',
+            'users.name as user_name',
+            'users.institution as user_institution',
+            'users.email as user_email',
+            'users.profile_picture as user_profile_picture'
+
+        )
+        ->join('followers', 'followers.follower_id' , '=', 'users.id')
+        ->where('followers.user_id' , Auth::user()->id)
+        ->get();
+
+        return view('chat', compact('followings', 'followers'));  
     }
 
     function send_message($id){
@@ -71,6 +84,16 @@ class MessageController extends Controller
             $req->file->move('assets', $filename);
             $message->file=$filename;
         }
+
+
+
+        $notification = new Notification();
+        $notification->user_id = $req->receiver_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->message = "New message from ".Auth::user()->name;
+        $notification->type = "message";
+
+        $notification->save();
 
         $message->save();
 

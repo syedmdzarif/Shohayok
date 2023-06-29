@@ -15,13 +15,20 @@ Notifications
             <td><a href={{'view_notification_content/'.$notification->id}}>View</a></td>
             <?php
                 }
-                else{
+                elseif($notification->type == 'course'){
             ?>
             <td><a href={{'course_notification_view/'.$notification->id}}>View</a></td>
             <?php
 
                 }
+                else{
+                    ?>
+            <td><a href={{'send_message/'.$notification->uploader_id}}>View</a></td>
+            <?php
+
+                }
             ?>
+         
             <td><a href={{'notification_delete'.$notification->id}}>Delete</a></td>
             
         </tr>
