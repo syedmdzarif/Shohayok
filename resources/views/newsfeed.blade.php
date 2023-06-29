@@ -53,27 +53,27 @@
             </div>
 
             <div class="details">
-                <p><b>Content Info</b></p>
-                {{$row->content_title}}
+                
+                <label class="title">{{$row->content_title}}</label>
                 <br>
-                {{$row->content_description}}
-                <br>
-                <br>
-                <p><b>Uploader Info</b></p>
-                <a class="e_login" href="{{url('view_profile/'.$row->content_user_id)}}">{{$row->user_name}}</a>
-                <br>
-                {{$row->user_institution}}
+                <label class="description">{{$row->content_description}}</label>
                 <br>
                 <br>
+                <p class="title"><b>Uploader Details</b></p>
+                <a class="e_login" href="{{url('view_profile/'.$row->content_user_id)}}"><label class="user_name">{{$row->user_name}}</label></a>
+                <br>
+                <label class="institution">{{$row->user_institution}}</label>
+                <br>
+                
            
-                <p><b>Posted</b></p>
-                {{$row->content_created_at}}
+                <label class="p_title">Created: </label>
+                <label class="created">{{$row->content_created_at}}</label>
                 <br>
-                <p><b>Modified</b></p>
-                {{$row->content_updated_at}}
+                <label class="p_title">Modified: </label>
+                <label class="created">{{$row->content_updated_at}}</label>
                 <br>
                 <br>
-                <a href="{{url('/download'. $row->content_file)}}">Click to Download</a>
+                <a href="{{url('/download'. $row->content_file)}}"><label class="download">Click to Download</label></a>
                 <br> 
             </div>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FollowController;
@@ -147,5 +148,14 @@ Route::post('create_support', [SupporterController::class, 'create_support']);
 
 
 Route::get('profile_info', [UserController::class, 'profile_info']);
+
+
+Route::get('chat', [MessageController::class, 'fetch_users']);
+
+
+Route::get('send_message/{id}', [MessageController::class, 'send_message']);
+
+
+Route::post('send_message_backend', [MessageController::class, 'send_message_backend']);
 
 
