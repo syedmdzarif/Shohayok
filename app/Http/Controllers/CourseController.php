@@ -43,9 +43,12 @@ class CourseController extends Controller
                 'courses.updated_at as course_updated_at',
                 'users.name as course_teacher_name',
                 'users.institution as course_teacher_institution',
-                'users.email as course_teacher_email'
+                'users.email as course_teacher_email',
+                'users.id as user_id'
+            
     
             )->join('users', 'courses.teacher_id', '=' , 'users.id')
+       
             ->where('courses.title', 'LIKE', "%$search%")
             ->orWhere('courses.description', 'LIKE', "%$search%")
             ->orWhere('courses.fee', 'LIKE', "%$search%")
@@ -64,13 +67,20 @@ class CourseController extends Controller
                 'courses.updated_at as course_updated_at',
                 'users.name as course_teacher_name',
                 'users.institution as course_teacher_institution',
-                'users.email as course_teacher_email'
+                'users.email as course_teacher_email',
+                'users.id as user_id'
+             
     
             )->join('users', 'courses.teacher_id', '=' , 'users.id')
+        
             ->get();
 
         }
-        $data = compact('data', 'search');
+
+        $sub = DB::table('course__subscriptions')
+        ->get();
+
+        $data = compact('data', 'search', 'sub');
         return view('find_course')->with($data);
 
     }
@@ -204,7 +214,7 @@ class CourseController extends Controller
     }
 
 
-    function show_specific_id(){
+    function show_specific_id($id){
         // $data=Content::all();
         // return view('newsfeed', compact('data'));
         $data = DB::table('course__contents')->select(
@@ -219,7 +229,7 @@ class CourseController extends Controller
             'users.institution as user_institution'
 
         )->join('users', 'course__contents.user_id', '=' , 'users.id')
-        ->where('users.id', Auth::user()->id)
+        ->where('course__contents.course_id', $id)
         ->get();
         
         return view('view_course_contents_specific', ['data' => $data]);
@@ -260,9 +270,11 @@ class CourseController extends Controller
             'course__contents.created_at as content_created_at',
             'course__contents.updated_at as content_updated_at',
             'users.name as user_name',
-            'users.institution as user_institution'
+            'users.institution as user_institution',
+            'courses.title as course_title'
 
             )->join('users', 'course__contents.user_id', '=' , 'users.id')
+            ->join('courses', 'course__contents.course_id', '=' , 'courses.id')
             ->where('course__contents.course_id', $id)
             ->get();
             

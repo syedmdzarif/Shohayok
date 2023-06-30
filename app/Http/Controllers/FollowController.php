@@ -14,7 +14,7 @@ class FollowController extends Controller
 {
     //
     function add_follower($id){
-        $follower = new Follower;
+        $follower = new Follower();
 
         $follower->user_id = $id;
         $follower->follower_id = Auth::user()->id;
@@ -28,7 +28,7 @@ class FollowController extends Controller
 
     function add_following($id){
 
-        $following = new Following;
+        $following = new Following();
 
         $following->user_id = Auth::user()->id;
         $following->following_id = $id;

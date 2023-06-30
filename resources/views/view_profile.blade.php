@@ -2,11 +2,11 @@
 <a class="e_login" href="{{url('profile_user')}}">Home</a>
 
 
-@foreach($data as $row)
+@foreach($user_info as $info)
 
 
 <?php 
-if($data[0]->user_profile_picture == ""){
+if($info->user_pfp == ""){
 ?>
 <img height="240px" width="240px" src=' /assets/profile_pictures/default_pfp.png'> </img>
 <?php
@@ -14,35 +14,119 @@ if($data[0]->user_profile_picture == ""){
 }
 else{
 ?>
-<img height="240px" width="240px" src=' /assets/profile_pictures/{{$data[0]->user_profile_picture}}'> </img>
+<img height="240px" width="240px" src=' /assets/profile_pictures/{{$info->user_pfp}}'> </img>
 <?php
 }
 ?>
 
 
 <h1>
-{{$data[0]->user_name}}
+{{$info->user_name}}
 <br>
-{{$data[0]->user_email}}
+{{$info->user_email}}
 <br>
-{{$data[0]->user_institution}}
+{{$info->user_institution}}
 </h1>
 
+@break
+@endforeach
+
 
 <br>
 
 
-<button><a href="{{url('add_following/'.$data[0]->user_id)}}">Follow</a><a href="{{url('remove_following/'.$data[0]->user_id)}}">/Unfollow</a></button>
-
-<button><a href="{{url('add_follower/'.$data[0]->user_id)}}">Notifications</a><a href="{{url('remove_follower/'.$data[0]->user_id)}}">/Stop Notifications</a></button>
-
-<button><a href="{{url('support_form/'.$data[0]->user_id)}}">Subscribe</a><a href="{{url('support_remove/'.$data[0]->user_id)}}">/Unsubscribe</a></button>
 <?php
-break;
+
+$flag_follow = 0;
+$flag_following = 0;
+$flag_sub=0;
 
 ?>
 
+@foreach($followers as $follower)
+
+    @if($follower->follower_id == Auth::user()->id && $follower->user_id == $profile_id)
+
+        <?php
+
+        $flag_follow = 1;
+
+        ?>
+        
+    @else
+
+        <?php
+
+        $flag_follow = 0;
+
+        ?>
+        
+    @endif
+
 @endforeach
+
+@foreach($followings as $following)
+
+    @if($following->following_id == $profile_id && $following->user_id == Auth::user()->id)
+
+        <?php
+
+        $flag_following = 1;
+
+        ?>
+        
+    @else
+
+        <?php
+
+        $flag_following = 0;
+
+        ?>
+        
+    @endif
+
+@endforeach
+
+@foreach($subs as $sub)
+
+    @if($sub->subscriber_id == Auth::user()->id && $sub->subscribed_to_id == $profile_id)
+
+        <?php
+
+        $flag_sub = 1;
+
+        ?>
+        
+    @else
+
+        <?php
+
+        $flag_sub = 0;
+
+        ?>
+        
+    @endif
+
+@endforeach
+
+
+@if($flag_follow == 1)
+<button><a href="{{url('remove_follower/'.$profile_id)}}">Unfollow</a></button>
+@else
+<button><a href="{{url('follower_add/'.$profile_id)}}">Follow</a></button>
+@endif
+
+@if($flag_following == 1)
+<button><a href="{{url('remove_following/'.$profile_id)}}">Stop Notifications</a></button>
+@else
+<button><a href="{{url('add_following/'.$profile_id)}}">Notifications</a></button>
+@endif
+
+@if($flag_sub == 1)
+<button><a href="{{url('support_remove/'.$profile_id)}}">Unsubscribe</a></button>
+@else
+<button><a href="{{url('support_form/'.$profile_id)}}">Subscribe</a></button>
+@endif
 
 
 

@@ -2,7 +2,11 @@
 
     <h1>course content history</h1>
     <a class="e_login" href="{{url('profile_user')}}">Home</a>
+
+    {{$data[0]->course_title}}
+    {{$data[0]->user_name}}
     <table>
+
     @foreach($data as $row)
 
         <tr>

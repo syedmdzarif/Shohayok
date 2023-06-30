@@ -88,7 +88,7 @@ Route::get("view_profile/{id}", [UserController::class, 'fetch_user_visit_profil
 
 Route::get("add_following/{id}", [FollowController::class, 'add_following']);
 
-Route::get("add_follower/{id}", [FollowController::class, 'add_follower']);
+Route::get("follower_add/{id}", [FollowController::class, 'add_follower']);
 
 Route::get("remove_following/{id}", [FollowController::class, 'remove_following']);
 
@@ -127,7 +127,7 @@ Route::get("course_notification_view/{id}", [NotificationController::class, 'cou
 
 
 
-Route::get('view_course_contents_specific', [CourseController::class, 'show_specific_id']);
+Route::get('view_course_contents_specific/{id}', [CourseController::class, 'show_specific_id']);
 
 Route::get('edit_course_content/{id}', [CourseController::class, 'show_data']);
 

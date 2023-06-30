@@ -254,19 +254,20 @@ input, select {
 	width: 230px;
 	padding: 8px;
 	margin: 5px auto;
-	border-radius: 4px;
+
 }
 
 button {
    
 	
     
-	background: #9c9c9c;
+	background: #979797;
 	padding: 10px 15px;
 	color: #fff;
-	border-radius: 4px;
+
 	margin-right: 30px;
 	border: none;
+  
 }
 button:hover{
 	opacity: .7;
@@ -291,3 +292,4 @@ color: #c65353;
     background-color:rgb(240, 240, 240);
     width: 820px;
 }
+

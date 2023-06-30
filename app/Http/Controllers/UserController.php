@@ -71,8 +71,34 @@ class UserController extends Controller
       
         ->where('users.id', $id)
         ->get();
+
+        $followers = DB::table('followers')->get();
+
+        $followings = DB::table('followings')->get();
+
+        $subs = DB::table('supporters')->get();
+
+
+        $profile_id = $id;
+
+        $user_info = DB::table('users')->select(
+            'users.name as user_name',
+            'users.institution as user_institution',
+            'users.id as user_id',
+            'users.email as user_email',
+            'users.profile_picture as user_pfp'
+        )->where('users.id', $id)->get();
+
+
+        if($id == Auth::user()->id){
+            return redirect("profile_user");
+        }
+        else{
       
-        return view("view_profile", ['data' => $data]);
+        // return view("view_profile", ['data' => $data]);
+        return view("view_profile", compact('data', 'followers', 'followings', 'subs', 'profile_id', 'user_info'));
+
+        }
 
     }
 
@@ -95,7 +121,7 @@ class UserController extends Controller
         
         // $following->save();
 
-        return redirect("welcome");
+        return redirect("login");
 
     }
     function user_login(Request $req){

@@ -129,7 +129,7 @@
                     <input type="text" name="message" placeholder="Type in your message">
                     <input type="file" name="file">
 
-                    <button type="submit">Send Message</button>
+                    <button type="submit" class="send"><b>Send Message</b></button>
 
                 <form>
             </div>
