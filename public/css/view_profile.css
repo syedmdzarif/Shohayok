@@ -1,0 +1,290 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: system-ui;
+    
+
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+   
+}
+  
+#main-header{
+    padding: 16px;
+    padding-right: 1300px;
+    text-align: left;
+    background-color: #538cc6;
+    color: #fff;
+}
+
+body{
+    background-color: white;
+    color: rgb(58, 58, 58);
+    overflow: hidden;
+    
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-right: 2px solid rgb(222, 222, 222);
+ 
+}
+
+.wrapper .sidebar h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+.wrapper .sidebar ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.wrapper .sidebar ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.wrapper .sidebar ul li a .fa-solid{
+    /* width: 200px; */
+
+}
+
+.wrapper .sidebar ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+/* .wrapper .sidebar ul li:hover a{
+    background: rgb(0, 0, 0);
+} */
+
+
+.main_content{
+    float:left;
+    
+    margin-left: 340px;
+    width: 900px;
+    position: relative;
+    overflow: auto;
+    height: 670px;
+    margin-bottom: 20px;
+}
+.upper{
+    padding-top: 40px;
+}
+
+.pfp_box{
+    float: left;
+   
+}
+
+.details_box{
+    float:right;
+    margin-right: 60px;
+    margin-left: 40px;
+    width: 580px;
+    color: rgb(58, 58, 58);
+}
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+
+.info_class{
+    display: flex;
+    position: relative;
+    overflow: auto;
+}
+
+.info_class .info{
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-left: 2px solid rgb(222, 222, 222);
+    overflow: auto;
+}
+
+.info_class .info h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+
+.info_class .info ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.info_class .info ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.info_class .info ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+
+button {
+   
+	
+    
+	background: #a3a3a3;
+	padding: 10px 15px;
+	color: #fff;
+
+	margin-right: 30px;
+	border: none;
+  
+}
+button:hover{
+	
+	background: #538cc6;
+	color: #fff;
+}
+
+.download{
+    color:blue;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.feed{
+  
+    margin-top: 280px;
+    width:100%;
+    height: 670px;
+    margin-bottom: 20px;
+   
+
+  
+   
+  
+}
+td{
+    padding-left: 20px;
+}
+
+
+.box_each{
+    
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.img{
+    float:left;
+    
+}
+
+.bio{
+    font-size: 14px;
+}
+.institute{
+    font-size: 16px;
+}
+.details{
+    float: right;
+    margin-left: 20px;
+    margin-right: 100px;
+    width:260px
+    
+}
+
+
+.info_class{
+    display: flex;
+    position: relative;
+    overflow: auto;
+  
+}
+
+.created{
+    font-size: 12px;
+}
+
+.download{
+    font-size: 14px;
+}
+
+.info_class .info{
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-left: 2px solid rgb(222, 222, 222);
+    overflow: auto;
+    
+}
+
+.info_class .info h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+
+.info_class .info ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.info_class .info ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.info_class .info ul li:hover{
+    background: rgb(222, 222, 222);
+}
+

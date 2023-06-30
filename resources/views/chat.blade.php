@@ -51,6 +51,11 @@
     <div class="information_class">
         <div class="information">
             <h2>Followers</h2>
+           
+        
+
+       
+
 
         @foreach($followers as $row)
 <ul>

@@ -29,7 +29,7 @@ class UserController extends Controller
             $users = User::where('name', 'LIKE', "%$search%")->orWhere('institution', 'LIKE', "%$search%")->paginate(4);
         }
         else{
-            $users = User::paginate(4);
+            $users = User::paginate(3);
 
         }
         $data = compact('users', 'search');
@@ -256,7 +256,7 @@ class UserController extends Controller
             'supporters.fee as subscribed_to_fee'
         )
         ->join('supporters', 'supporters.subscribed_to_id', '=', 'users.id')
-        ->where('users.id' , Auth::user()->id)
+        ->where('supporters.subscriber_id' , Auth::user()->id)
         ->get();
 
         return view("profile_info", compact('followers', 'subscribers', 'followings', 'subscribed_to'));

@@ -270,7 +270,7 @@ button {
   
 }
 button:hover{
-	opacity: .7;
+	
 	background: #538cc6;
 	color: #fff;
 }
