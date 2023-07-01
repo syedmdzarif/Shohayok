@@ -85,7 +85,7 @@
             <ul>
                 @foreach($subscribers as $subscriber)
                 <li>
-                <a class="e_login" href="{{url('view_profile/'.$subscriber->subscriber_id)}}">{{$subscriber->subscriber_name}} ({{$subscriber->subscriber_fee}}.00 BDT)</a>
+                <a class="e_login" href="{{url('view_profile/'.$subscriber->subscriber_id)}}">{{$subscriber->subscriber_name}} <br> {{$subscriber->subscriber_fee}}.00 BDT</a>
                 </li>   
                 @endforeach
 
@@ -100,7 +100,7 @@
             <ul>
                 @foreach($subscribed_to as $sb_to)
                 <li>
-                <a class="e_login" href="{{url('view_profile/'.$sb_to->subscribed_to_id)}}">{{$sb_to->subscribed_to_name}} ({{$sb_to->subscribed_to_fee}}.00 BDT)</a> 
+                <a class="e_login" href="{{url('view_profile/'.$sb_to->subscribed_to_id)}}">{{$sb_to->subscribed_to_name}} <br> {{$sb_to->subscribed_to_fee}}.00 BDT</a> 
                 </li>   
                 @endforeach
 

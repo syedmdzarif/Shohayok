@@ -232,7 +232,11 @@ $flag_sub=0;
         <h2>Courses</h2>
         <ul>
         @foreach($courses as $row)
+        @if($row->course_id == "")
+        <li><p>No courses </p></li>
+        @else
         <li><a href="{{url('/view_course_specific_from_profile/'. $row->course_id)}}">{{$row->course_title}}</a></li>
+        @endif
         @endforeach
         </ul>
     </div>

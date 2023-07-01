@@ -72,7 +72,7 @@ select{
     box-sizing: border-box;
     height:50px;
     border: 2px;
-    border-color: black;
+    border-color: grey;
     padding-bottom: 100px;
     
 }
