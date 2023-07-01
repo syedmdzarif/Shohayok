@@ -1,4 +1,5 @@
 <html>
+    <body>
 
     <h1>
         find content
@@ -41,5 +42,22 @@
     @endforeach
 
     </table>
+
+    <div class="links">
+
+    <br>
+        {{$data->links()}}
+       
+    
+    </div>
+
+    <!-- to get rid of big pagination arrow -->
+    <style>
+        .w-5{
+            display:none;
+        }
+    </style>
+
+    </body>
 
 </html>

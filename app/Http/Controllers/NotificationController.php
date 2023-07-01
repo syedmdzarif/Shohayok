@@ -24,6 +24,14 @@ class NotificationController extends Controller
 
     }
 
+    function clear_notifications(){
+        $notifications = DB::table('notifications')
+        ->where('notifications.user_id', Auth::user()->id)->delete();
+
+        return redirect()->back();
+
+    }
+
     function view_notification_content($id){
 
         $data = DB::table('contents')->select(

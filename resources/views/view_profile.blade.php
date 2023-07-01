@@ -229,12 +229,11 @@ $flag_sub=0;
 
 <div class="info_class">
     <div class="info">
-        <h2>Profile Information</h2>
+        <h2>Courses</h2>
         <ul>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-user"></i> Followers</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-regular fa-user"></i> Followings</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-dollar-sign"></i> Subscribers</a></li>
-        <li><a href="{{url('profile_info')}}"><i class="fa-solid fa-dollar-sign"></i> Subscriptions</a></li>
+        @foreach($courses as $row)
+        <li><a href="{{url('/view_course_specific_from_profile/'. $row->course_id)}}">{{$row->course_title}}</a></li>
+        @endforeach
         </ul>
     </div>
 </div>

@@ -281,4 +281,32 @@ class CourseController extends Controller
             return view('view_enrolled_course', ['data' => $data]);
 
         }
+
+        function view_course_specific_from_profile($id){
+           
+                $data = DB::table('courses')->select(
+                    'courses.id as course_id',
+                    'courses.teacher_id as course_teacher_id',
+                    'courses.title as course_title',
+                    'courses.description as course_description',
+                    'courses.fee as course_fee',
+                    'courses.created_at as course_created_at',
+                    'courses.updated_at as course_updated_at',
+                    'users.name as course_teacher_name',
+                    'users.institution as course_teacher_institution',
+                    'users.email as course_teacher_email',
+                    'users.id as user_id'
+                
+        
+                )->join('users', 'courses.teacher_id', '=' , 'users.id')
+                ->where('courses.id', '=', $id)
+                ->get();
+
+                $sub = DB::table('course__subscriptions')
+                ->get();
+                
+                $data = compact('data', 'sub');
+                return view('view_course_specific_from_profile')->with($data);
+
+            }
 }

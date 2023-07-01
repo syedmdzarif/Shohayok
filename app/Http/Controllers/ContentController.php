@@ -165,7 +165,7 @@ class ContentController extends Controller
                 ->orWhere('contents.description', 'LIKE', "%$search%")
                 ->orWhere('users.name', 'LIKE', "%$search%")
                 ->orWhere('users.institution', 'LIKE', "%$search%")
-                ->get();
+                ->paginate(8);
             }
             else{
                 $data = DB::table('contents')->select(
@@ -180,7 +180,7 @@ class ContentController extends Controller
                     'users.institution as user_institution'
         
                 )->join('users', 'contents.user_id', '=' , 'users.id')
-                ->get();
+                ->paginate(8);
     
             }
             $data = compact('data', 'search');

@@ -165,6 +165,7 @@ body{
     display: flex;
     position: relative;
     overflow: auto;
+    margin-left: 940px;
 }
 
 .info_class .info{

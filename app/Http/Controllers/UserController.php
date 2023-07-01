@@ -65,11 +65,19 @@ class UserController extends Controller
             'users.profile_picture as user_profile_picture',
             'users.institution as user_institution',
          
-           
-
+         
         )->join('users', 'contents.user_id', '=' , 'users.id')
-      
         ->where('users.id', $id)
+        ->get();
+
+        $courses = DB::table('courses')->select(
+            'courses.id as course_id',
+            'courses.title as course_title',
+            'courses.fee as course_fee',
+            'courses.description as course description',
+            'users.id as user_id',
+        )->join('users', 'users.id', '=' , 'courses.teacher_id')
+        ->where('courses.teacher_id', $id)
         ->get();
 
         $followers = DB::table('followers')->get();
@@ -96,7 +104,7 @@ class UserController extends Controller
         else{
       
         // return view("view_profile", ['data' => $data]);
-        return view("view_profile", compact('data', 'followers', 'followings', 'subs', 'profile_id', 'user_info'));
+        return view("view_profile", compact('data', 'followers', 'followings', 'subs', 'profile_id', 'user_info', 'courses'));
 
         }
 

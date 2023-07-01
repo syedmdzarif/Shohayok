@@ -12,18 +12,32 @@ Notifications
             <?php
                 if($notification->type == 'content'){
             ?>
-            <td><a href={{'view_notification_content/'.$notification->id}}>View</a></td>
+            <td><a href={{'view_notification_content/'.$notification->id}}>Open</a></td>
             <?php
                 }
                 elseif($notification->type == 'course'){
             ?>
-            <td><a href={{'course_notification_view/'.$notification->id}}>View</a></td>
+            <td><a href={{'course_notification_view/'.$notification->id}}>Open</a></td>
             <?php
 
                 }
+
+                elseif($notification->type == 'follow'){
+                    ?>
+                    <td><a href={{'view_profile/'.$notification->uploader_id}}>Open</a></td>
+                    <?php
+        
+                }
+
+                elseif($notification->type == 'sub'){
+                            ?>
+                            <td><a href={{'view_profile/'.$notification->uploader_id}}>Open</a></td>
+                            <?php
+                
+                }
                 else{
                     ?>
-            <td><a href={{'send_message/'.$notification->uploader_id}}>View</a></td>
+            <td><a href={{'send_message/'.$notification->uploader_id}}>Open</a></td>
             <?php
 
                 }
@@ -34,6 +48,12 @@ Notifications
         </tr>
 @endforeach
 
+
+
+
 </table>
+
+<br>
+<a href={{'clear_notifications'}}>Clear Notifications</a>
 
 </html>

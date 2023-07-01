@@ -98,6 +98,8 @@ Route::get("notifications", [NotificationController::class, 'fetch_notifications
 
 Route::get('notification_delete{id}', [NotificationController::class, 'delete_notification']);
 
+Route::get('clear_notifications', [NotificationController::class, 'clear_notifications']);
+
 
 Route::get("find_content", [ContentController::class, 'show_search']);
 
@@ -157,5 +159,8 @@ Route::get('send_message/{id}', [MessageController::class, 'send_message']);
 
 
 Route::post('send_message_backend', [MessageController::class, 'send_message_backend']);
+
+
+Route::get("view_course_specific_from_profile/{id}", [CourseController::class, 'view_course_specific_from_profile']);
 
 

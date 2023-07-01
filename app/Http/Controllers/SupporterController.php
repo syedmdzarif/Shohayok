@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supporter;
+use App\Models\Notification;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -36,6 +37,16 @@ class SupporterController extends Controller
         $supporter->subscriber_id = Auth::user()->id;
 
         $supporter->save();
+
+
+
+        $notification = new Notification();
+        $notification->user_id = $req->user_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->type = "sub";
+        $notification->message = Auth::user()->name." from ".Auth::user()->institution." subscribed to you for ". $req->fee. ".00 BDT/Month";
+
+        $notification->save();
 
         return redirect("profile_user");
 
