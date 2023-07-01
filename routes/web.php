@@ -4,6 +4,7 @@ use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\ContentController;
@@ -162,5 +163,8 @@ Route::post('send_message_backend', [MessageController::class, 'send_message_bac
 
 
 Route::get("view_course_specific_from_profile/{id}", [CourseController::class, 'view_course_specific_from_profile']);
+
+
+Route::post("post_comment_backend/{id}", [CommentController::class, 'post_comment_backend']);
 
 

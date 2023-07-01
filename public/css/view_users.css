@@ -119,7 +119,7 @@ body{
 }
 
 table{
-    border-spacing: 10px;
+    border-spacing: 8px;   
 }
 
 
@@ -241,7 +241,7 @@ button:hover{
 }
 
 .links{
-    margin-left: 684px;
+    margin-left: 676px;
     font-size: 12px;
     padding-bottom: 40px;
 }

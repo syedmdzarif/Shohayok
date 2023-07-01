@@ -75,16 +75,26 @@ class ContentController extends Controller
             'contents.created_at as content_created_at',
             'contents.updated_at as content_updated_at',
             'users.name as user_name',
-            'users.institution as user_institution'
+            'users.id as user_id',
+            'users.institution as user_institution',
 
         )->join('users', 'contents.user_id', '=' , 'users.id')
         ->join('followings', 'contents.user_id', '=', 'followings.following_id')
+        ->join('followers', 'contents.user_id', '=', 'followers.follower_id')
         ->where('followings.user_id', '=', Auth::user()->id)
         ->get();
 
-        
-        
-        return view('newsfeed', ['data' => $data]);
+        $comments = DB::table('comments')->select(
+            'comments.user_id as comment_user_id',
+            'comments.content_id as comment_content_id',
+            'comments.comment as comment',
+            'comments.created_at as comment_created_at',
+            'users.id as user_id',
+            'users.name as user_name'
+        )->join('users', 'users.id', '=', 'comments.user_id')
+        ->get();
+
+        return view('newsfeed', compact('data', 'comments'));
 
     }
 

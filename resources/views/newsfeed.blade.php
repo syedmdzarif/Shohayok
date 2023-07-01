@@ -48,7 +48,10 @@
             <div class="img">
                 <iframe height="500px" width="500px" src=' /assets/{{$row->content_file}}'> </iframe>
                 <br>
-                <br>
+               
+            
+            <br>
+            <br>
 
        
             </div>
@@ -60,7 +63,7 @@
                 <label class="description">{{$row->content_description}}</label>
                 <br>
                 <br>
-                <p class="title"><b>Uploader Details</b></p>
+          
                 <a class="e_login" href="{{url('view_profile/'.$row->content_user_id)}}"><label class="user_name">{{$row->user_name}}</label></a>
                 <br>
                 <label class="institution">{{$row->user_institution}}</label>
@@ -73,12 +76,41 @@
                 <label class="p_title">Edited: </label>
                 <label class="created">{{$row->content_updated_at}}</label>
                 <br>
-                <br>
                 <a href="{{url('/download'. $row->content_file)}}"><label class="download">Click to Download</label></a>
-                <br> 
+                <br>
+                <br>
+
+                <p class="title"><b>Comments</b></p>
+                
+                <div class="user_comments">
+                    @foreach($comments as $comment)
+                        @if($comment->comment_content_id == $row->content_id)
+                        <a class="e_login" href="{{url('view_profile/'.$comment->comment_user_id)}}"><label class="commenter">{{$comment->user_name}}: </lable></a><br><label class="commenter">{{$comment->comment}}</label><label class="created_at"> - {{$comment->comment_created_at}}</label></label>
+                        
+                        
+                        <br>
+
+                        @endif
+                    @endforeach
+                    
+                </div>
+                <form action="{{url('/post_comment_backend/'.$row->content_id)}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="comment">
+                        <div class="left">
+                            <input type="hidden" name="user_id" value={{$row->user_id}}>
+                            <input type="text" name="comment" placeholder="Write a comment">
+                        </div>
+                        <div class="right">
+                            <button type="submit"><b>Post</b></button>
+                        </div>
+                    </div>
+                </form>
+                
             </div>
 
         </div>
+       
         @endforeach
     </div>  
 

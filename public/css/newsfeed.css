@@ -132,7 +132,9 @@ body{
 .details{
     float: right;
     margin-left: 40px;
-    width:300px
+    width:300px;
+
+    height: 100%;
     
 }
 
@@ -213,6 +215,66 @@ body{
     
 }
 
+input, select {
+	display: block;
+	border: 2px solid #ccc;
+	width: 238px;
+    height: 32px;
+    
+	padding: 8px;
+	
+	border-radius: 0px;
+    
+}
+
+.comment{
+    width: 290px;
+}
+
+.left{
+    float:left;
+}
+.right{
+    float: right;
+    width: 40px;
+    margin-right: 4px;
+   
+}
+
+.created_at{
+    font-size: 9px;
+}
+
+.user_comments{
+    height: 242px;
+
+    position: relative;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.commenter{
+    font-size: 13px;
+}
+
+button {
+
+	background: #8c8c8c;
+	
+    height: 32px;
+    width:54px;
+   
+	color: #fff;
+	border-radius: 0px;
+	margin-right: 38px;
+	border: none;
+}
+button:hover{
+
+	background: #538cc6;
+	color: #fff;
+}
+
 
 /* .news{
     margin-left: 400px;
@@ -254,5 +316,5 @@ body{
 }
 
 .download{
-    font-size: 14px;
+    font-size: 12px;
 }

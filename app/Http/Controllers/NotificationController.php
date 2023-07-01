@@ -50,7 +50,19 @@ class NotificationController extends Controller
         ->where('notifications.id', '=', $id)
         ->get();
 
-        return view('view_notification_content', ['data' => $data]);
+        $comments = DB::table('comments')->select(
+            'comments.user_id as comment_user_id',
+            'comments.content_id as comment_content_id',
+            'comments.comment as comment',
+            'comments.created_at as comment_created_at',
+            'users.id as user_id',
+            'users.name as user_name'
+        )->join('users', 'users.id', '=', 'comments.user_id')
+        ->get();
+
+
+
+        return view('view_notification_content', compact('data', 'comments'));
         
     }
 

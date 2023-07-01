@@ -26,6 +26,26 @@ class CourseController extends Controller
         
         $data->save();
 
+
+        $followers = DB::table('followers')->select(
+            // 'followers.id as follower_id',
+            // 'followers.user_id as follower_user_id',
+            'followers.follower_id as follower_follower_id'
+        )->where('followers.user_id', '=', Auth::user()->id)
+        ->get();
+
+        foreach($followers as $follower){
+
+        $notification = new Notification();
+        $notification->user_id = $follower->follower_follower_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->message = 'New course created by '. Auth::user()->name . ' titled "'. $req->title . '"';
+
+        $notification->type = 'create_course';
+        $notification->save();
+
+        }
+
         return redirect("my_courses");
     }
 

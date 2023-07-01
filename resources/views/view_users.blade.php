@@ -40,7 +40,7 @@
 
 <div class="main_content">
    <div class="table_allign">
-    <table  class="table" >
+    <table class="table" >
         
         <tr>
   
@@ -103,7 +103,7 @@
     
         <form action={{'view_users'}} >
         
-            <input type="search" name="search" id="" placeholder = "Search users by name, institute"  value="{{$search}}">
+            <input type="search" name="search" id="" placeholder = "Search by name, institute"  value="{{$search}}">
             <button><b>Search User</b></button>
             <br>
          
