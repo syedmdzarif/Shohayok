@@ -51,6 +51,7 @@ class NotificationController extends Controller
         ->get();
 
         $comments = DB::table('comments')->select(
+            'comments.id as comment_id',
             'comments.user_id as comment_user_id',
             'comments.content_id as comment_content_id',
             'comments.comment as comment',

@@ -85,6 +85,7 @@ class ContentController extends Controller
         ->get();
 
         $comments = DB::table('comments')->select(
+            'comments.id as comment_id',
             'comments.user_id as comment_user_id',
             'comments.content_id as comment_content_id',
             'comments.comment as comment',
@@ -125,12 +126,25 @@ class ContentController extends Controller
             'contents.updated_at as content_updated_at',
             'users.name as user_name',
             'users.institution as user_institution'
-
+            
         )->join('users', 'contents.user_id', '=' , 'users.id')
         ->where('users.id', Auth::user()->id)
         ->get();
-        
-        return view('upload_history', ['data' => $data]);
+
+
+        $comments = DB::table('comments')->select(
+            'comments.id as comment_id',
+            'comments.created_at as comment_created_at',
+            'comments.comment as comment',
+            'comments.content_id as comment_content_id',
+            'comments.user_id as comment_user_id',
+            'users.name as comment_user_name'
+            
+        )->join('users', 'users.id' , '=', 'comments.user_id')
+       
+        ->get();
+
+        return view('upload_history', compact('data', 'comments'));
 
     }
 

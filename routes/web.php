@@ -168,3 +168,6 @@ Route::get("view_course_specific_from_profile/{id}", [CourseController::class, '
 Route::post("post_comment_backend/{id}", [CommentController::class, 'post_comment_backend']);
 
 
+Route::get('comment_delete/{id}', [CommentController::class, 'comment_delete']);
+
+

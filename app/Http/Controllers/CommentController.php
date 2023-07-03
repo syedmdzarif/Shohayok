@@ -37,4 +37,11 @@ class CommentController extends Controller
 
         return redirect("newsfeed");
     }
+
+
+    function comment_delete($id){
+        $data = DB::table('comments')->where('id', $id);
+        $data->delete();
+        return redirect()->back();
+    }
 }
