@@ -35,9 +35,15 @@ Notifications
                             <?php
                 
                 }
-                elseif($notification->type == 'comment'){
+                elseif($notification->type == 'comment_content'){
                     ?>
                      <td><a href={{'view_notification_content/'.$notification->id}}>Open</a></td>
+                    <?php
+        
+                }
+                elseif($notification->type == 'comment_course'){
+                    ?>
+                     <td><a href={{'view_course_comment/'.$notification->id}}>Open</a></td>
                     <?php
         
                 }

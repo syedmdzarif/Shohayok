@@ -82,6 +82,7 @@ class ContentController extends Controller
         ->join('followings', 'contents.user_id', '=', 'followings.following_id')
         ->join('followers', 'contents.user_id', '=', 'followers.follower_id')
         ->where('followings.user_id', '=', Auth::user()->id)
+        ->orWhere('contents.user_id', '=', Auth::user()->id)
         ->get();
 
         $comments = DB::table('comments')->select(
@@ -89,6 +90,7 @@ class ContentController extends Controller
             'comments.user_id as comment_user_id',
             'comments.content_id as comment_content_id',
             'comments.comment as comment',
+            'comments.type as comment_type',
             'comments.created_at as comment_created_at',
             'users.id as user_id',
             'users.name as user_name'
@@ -138,6 +140,7 @@ class ContentController extends Controller
             'comments.comment as comment',
             'comments.content_id as comment_content_id',
             'comments.user_id as comment_user_id',
+            'comments.type as comment_type',
             'users.name as comment_user_name'
             
         )->join('users', 'users.id' , '=', 'comments.user_id')
@@ -207,7 +210,21 @@ class ContentController extends Controller
                 ->paginate(8);
     
             }
-            $data = compact('data', 'search');
+
+
+            $comments = DB::table('comments')->select(
+                'comments.id as comment_id',
+                'comments.user_id as comment_user_id',
+                'comments.content_id as comment_content_id',
+                'comments.comment as comment',
+                'comments.type as comment_type',
+                'comments.created_at as comment_created_at',
+                'users.id as comment_user_id',
+                'users.name as comment_user_name'
+            )->join('users', 'users.id', '=', 'comments.user_id')
+            ->get();
+
+            $data = compact('data', 'search', 'comments');
             return view('find_content')->with($data);
 
         }

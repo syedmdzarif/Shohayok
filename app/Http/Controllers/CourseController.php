@@ -251,8 +251,22 @@ class CourseController extends Controller
         )->join('users', 'course__contents.user_id', '=' , 'users.id')
         ->where('course__contents.course_id', $id)
         ->get();
+
+
+        $comments = DB::table('comments')->select(
+            'comments.id as comment_id',
+            'comments.created_at as comment_created_at',
+            'comments.comment as comment',
+            'comments.type as comment_type',
+            'comments.content_id as comment_content_id',
+            'comments.user_id as comment_user_id',
+            'users.name as comment_user_name'
+            
+        )->join('users', 'users.id' , '=', 'comments.user_id')
+       
+        ->get();
         
-        return view('view_course_contents_specific', ['data' => $data]);
+        return view('view_course_contents_specific', compact('data', 'comments'));
 
     }
 
@@ -283,22 +297,37 @@ class CourseController extends Controller
         
             $data = DB::table('course__contents')->select(
             'course__contents.id as content_id',
+            'course__contents.course_id as course_id',
             'course__contents.user_id as content_user_id',
             'course__contents.title as content_title',
             'course__contents.description as content_description',
             'course__contents.file as content_file',
             'course__contents.created_at as content_created_at',
             'course__contents.updated_at as content_updated_at',
+            'users.id as user_id',
             'users.name as user_name',
             'users.institution as user_institution',
-            'courses.title as course_title'
+            'courses.title as course_title',
+            'courses.description as course_description'
 
             )->join('users', 'course__contents.user_id', '=' , 'users.id')
             ->join('courses', 'course__contents.course_id', '=' , 'courses.id')
             ->where('course__contents.course_id', $id)
             ->get();
+
+            $comments = DB::table('comments')->select(
+                'comments.id as comment_id',
+                'comments.user_id as comment_user_id',
+                'comments.content_id as comment_content_id',
+                'comments.comment as comment',
+                'comments.type as comment_type',
+                'comments.created_at as comment_created_at',
+                'users.id as user_id',
+                'users.name as user_name'
+            )->join('users', 'users.id', '=', 'comments.user_id')
+            ->get();
             
-            return view('view_enrolled_course', ['data' => $data]);
+            return view('view_enrolled_course', compact('data', 'comments'));
 
         }
 

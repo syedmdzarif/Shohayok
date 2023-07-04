@@ -22,6 +22,7 @@ class CommentController extends Controller
 
         $data->user_id=Auth::user()->id;
         $data->comment=$req->comment;
+        $data->type='content';
         $data->content_id=$id;
        
         
@@ -32,10 +33,34 @@ class CommentController extends Controller
         $notification->uploader_id = Auth::user()->id;
         $notification->message = Auth::user()->name .' commented on your post '.'"'. $req->comment . '"';
         $notification->content_id = $id;
-        $notification->type = 'comment';
+        $notification->type = 'comment_content';
         $notification->save();
 
         return redirect("newsfeed");
+    }
+
+
+    function post_comment_course_backend(Request $req, $id){
+        $data = new Comment();
+
+        $data->user_id=Auth::user()->id;
+        $data->comment=$req->comment;
+        $data->type='course';
+        $data->content_id=$id;
+       
+        
+        $data->save();
+
+        $notification = new Notification();
+        $notification->user_id = $req->user_id;
+        $notification->uploader_id = Auth::user()->id;
+        $notification->message = Auth::user()->name .' commented on your course content '.'"'. $req->comment . '"';
+        $notification->content_id = $id;
+        $notification->course_id = $req->course_id;
+        $notification->type = 'comment_course';
+        $notification->save();
+
+        return redirect()->back();
     }
 
 

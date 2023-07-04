@@ -171,3 +171,9 @@ Route::post("post_comment_backend/{id}", [CommentController::class, 'post_commen
 Route::get('comment_delete/{id}', [CommentController::class, 'comment_delete']);
 
 
+Route::post("post_comment_course_backend/{id}", [CommentController::class, 'post_comment_course_backend']);
+
+
+Route::get('view_course_comment/{id}', [NotificationController::class, 'view_course_comment']);
+
+
