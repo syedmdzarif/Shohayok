@@ -46,7 +46,7 @@ class CourseController extends Controller
 
         }
 
-        return redirect("my_courses");
+        return redirect("course_content_upload/{$data->id}");
     }
 
 
