@@ -61,11 +61,12 @@
 <ul>
         
      
-    
+        @if($row->user_id != Auth::user()->id)
         <li><a class="e_login" href="{{url('send_message/'.$row->user_id)}}"><b>{{$row->user_name}}</b></a>
 
         {{$row->user_institution}}
 </li>
+@endif
        
        
    
@@ -87,12 +88,14 @@
     @foreach($followings as $row)
 
         <ul>
+        @if($row->user_id != Auth::user()->id)
         <li>
     
         <a class="e_login" href="{{url('send_message/'.$row->user_id)}}"><b>{{$row->user_name}}</b></a></td>
  
 
         {{$row->user_institution}}</li>
+        @endif
  
        
    

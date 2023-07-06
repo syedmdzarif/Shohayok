@@ -49,9 +49,11 @@
             <br>
             <ul>
                 @foreach($followers as $follower)
+                @if($follower->follower_id != Auth::user()->id)
                 <li>
                 <a class="e_login" href="{{url('view_profile/'.$follower->follower_id)}}">{{$follower->follower_name}}</a>
-                </li>   
+                </li>  
+                @endif 
                 @endforeach
 
             </ul>
@@ -64,9 +66,11 @@
             <br>
             <ul>
                 @foreach($followings as $following)
+                @if($following->following_id != Auth::user()->id)
                 <li>
                 <a class="e_login" href="{{url('view_profile/'.$following->following_id)}}">{{$following->following_name}}</a>
-                </li>   
+                </li>  
+                @endif 
                 @endforeach
 
             </ul>
