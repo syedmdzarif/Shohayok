@@ -122,7 +122,7 @@
         <!-- <label class = "author"> {{$data[0]->course_description}} </label>  -->
         </h2>
         <ul>
-        <li><a href="{{url('send_message/'.$data[0]->user_id)}}">Send a Message to {{$data[0]->user_name}}</a></li>
+        <li><a href="{{url('send_message/'.$data[0]->user_id)}}">Message <b>{{$data[0]->user_name}}</b></a></li>
         
         </ul>
     </div>

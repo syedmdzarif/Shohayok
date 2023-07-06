@@ -80,7 +80,7 @@ class ContentController extends Controller
 
         )->join('users', 'contents.user_id', '=' , 'users.id')
         ->join('followings', 'contents.user_id', '=', 'followings.following_id')
-        ->join('followers', 'contents.user_id', '=', 'followers.follower_id')
+        // ->join('followers', 'contents.user_id', '=', 'followers.follower_id')
         ->where('followings.user_id', '=', Auth::user()->id)
         ->orWhere('contents.user_id', '=', Auth::user()->id)
         ->get();

@@ -7,6 +7,8 @@ use Crypt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Following;
+use App\Models\Follower;
 use App\Models\Content;
 
 use Illuminate\Support\Facades\Session;
@@ -124,6 +126,19 @@ class UserController extends Controller
        
 
         $user->save();
+
+
+        $following = new Following();
+        $following->user_id = $user->id;
+        $following->following_id = $user->id;
+
+        $following->save();
+
+        $follower = new Follower();
+        $follower->user_id = $user->id;
+        $follower->follower_id = $user->id;
+
+        $follower->save();
 
         // $following->user_id = $user->id;
         
