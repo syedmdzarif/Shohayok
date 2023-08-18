@@ -1,0 +1,354 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: system-ui;
+
+    
+
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+   
+}
+  
+#main-header{
+    padding: 16px;
+    padding-right: 1300px;
+    text-align: left;
+    background-color: #538cc6;
+    color: #fff;
+    position: relative;
+    
+}
+
+body{
+    background-color: white;
+    color: rgb(58, 58, 58);
+    overflow: hidden;
+
+    
+    
+}
+
+.wrapper{
+    display: flex;
+ 
+    overflow: hidden;
+    
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-right: 2px solid rgb(222, 222, 222);
+    overflow: hidden;
+ 
+}
+
+.wrapper .sidebar h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+.wrapper .sidebar ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+
+
+.wrapper .sidebar ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.wrapper .sidebar ul li a .fa-solid{
+    /* width: 200px; */
+
+}
+
+.wrapper .sidebar ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+/* .wrapper .sidebar ul li:hover a{
+    background: rgb(0, 0, 0);
+} */
+
+
+.main_content{
+    
+    float:left;
+    padding-bottom: 40px;
+   
+    margin-left: 300px;
+    width: 940px;
+    
+    padding-right: 40px;
+    height: 670px;
+    overflow: auto;
+    position: relative;
+
+    padding-left: 40px;
+    padding-top: 40px;
+    
+  
+    
+    
+}
+
+.notifications{
+
+    
+}
+
+.table{
+    width:810px;
+
+    position: relative;
+    overflow: auto;
+    margin-top: 40px;
+    /* display:table-header-group; */
+    display: unset;
+  
+}
+
+.table_allign{
+    margin-top: 40px;
+}
+
+th{
+    background-color: rgb(222, 222, 222);
+    padding: 10px;
+}
+
+.feed{
+    float:left;
+    height: 670px;
+    overflow: auto;
+    position: relative;
+  
+    padding:40px;
+    
+    
+}
+.box_each{
+    
+    padding-bottom: 40px;
+}
+
+
+
+
+.img{
+    float:left;
+    
+}
+
+
+
+.details{
+    float: right;
+    margin-left: 40px;
+    width:300px;
+
+    height: 100%;
+    
+}
+
+
+
+.pfp_box{
+    float: left;
+   
+}
+
+.details_box{
+    float:right;
+    margin-right: 60px;
+    margin-left: 40px;
+    width: 580px;
+    color: rgb(58, 58, 58);
+}
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.institute{
+    
+}
+
+
+.info_class{
+    display: flex;
+    position: relative;
+    overflow: auto;
+    margin-left: 1000px;
+}
+
+.info_class .info{
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-left: 2px solid rgb(222, 222, 222);
+    overflow: auto;
+    
+}
+
+.info_class .info h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+
+.info_class .info ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.info_class .info ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.info_class .info ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+.content_table {
+
+    
+}
+
+input, select {
+	display: block;
+	border: 2px solid #ccc;
+	width: 238px;
+    height: 32px;
+    
+	padding: 8px;
+	
+	border-radius: 0px;
+    
+}
+
+.comment{
+    width: 290px;
+}
+
+.left{
+    float:left;
+}
+.right{
+    float: right;
+    width: 40px;
+    margin-right: 4px;
+   
+}
+
+.created_at{
+    font-size: 9px;
+}
+
+.user_comments{
+    height: 242px;
+
+    position: relative;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.commenter{
+    font-size: 13px;
+}
+
+button {
+
+	background: #8c8c8c;
+	
+    height: 32px;
+    width:54px;
+   
+	color: #fff;
+	border-radius: 0px;
+	margin-right: 38px;
+	border: none;
+}
+button:hover{
+
+	background: #538cc6;
+	color: #fff;
+}
+
+
+/* .news{
+    margin-left: 400px;
+    margin-top: 200px;
+    height: 20px;
+    border: 2px solid black;
+    width: 400px;
+    overflow: auto;
+} */
+
+
+
+
+
+.users{
+    float:right
+}
+
+.title{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.description{
+    font-size: 14px;
+}
+
+.institution{
+    font-size: 14px;
+}
+
+.p_title{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.created{
+    font-size: 12px;
+}
+
+.download{
+    font-size: 12px;
+}
