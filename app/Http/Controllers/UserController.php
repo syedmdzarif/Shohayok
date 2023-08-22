@@ -218,11 +218,20 @@ class UserController extends Controller
         
         $data = User::find(Auth::user()->id);
 
-        $profile_picture=$req->profile_picture;
+        if($req->profile_picture != ""){
+            $profile_picture=$req->profile_picture;
+            $pfp_name= Auth::user()->name.'_'.time().'.'.$profile_picture->getClientOriginalExtension();
+            $req->profile_picture->move('assets/profile_pictures', $pfp_name);
+            $data->profile_picture=$pfp_name;
+        }
+        else{
+
+        }
+
         
-        $pfp_name= Auth::user()->name.'_'.time().'.'.$profile_picture->getClientOriginalExtension();
-        $req->profile_picture->move('assets/profile_pictures', $pfp_name);
-        $data->profile_picture=$pfp_name;
+        // $pfp_name= Auth::user()->name.'_'.time().'.'.$profile_picture->getClientOriginalExtension();
+        // $req->profile_picture->move('assets/profile_pictures', $pfp_name);
+        // $data->profile_picture=$pfp_name;
 
         $data->name = $req->name;
         $data->email = $req->email;

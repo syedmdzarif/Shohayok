@@ -22,7 +22,7 @@
     </select>
 
     <p>Profile Picture</p>
-    <input type="file" name="profile_picture" placeholder="Choose file">
+    <input type="file" name="profile_picture" placeholder="Choose file"">
     
     <p>Password</p>
     <input type="password" placeholder="Enter your password" name="password" value="{{$data['password']}}">
