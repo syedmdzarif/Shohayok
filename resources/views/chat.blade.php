@@ -26,7 +26,7 @@
             <li><a href="{{url('/find_content')}}"><i class="fa-solid fa-magnifying-glass"></i> Find Content</li>
             <li><a href="{{url('/upload_history')}}"><i class="fa-solid fa-file"></i> Upload History</li>
             <li><a href="{{url('/chat')}}"><i class="fa-solid fa-comment"></i> Chat</a></li>
-            <li><a href="{{'update_profile'}}"><i class="fa-solid fa-user"></i> Update Profile</li>
+            <!-- <li><a href="{{'update_profile'}}"><i class="fa-solid fa-user"></i> Update Profile</li> -->
             <li><a href="{{url('/view_users')}}"><i class="fa-solid fa-magnifying-glass"></i> Find People</li>
             <li><a href="{{url('/notifications')}}"><i class="fa-sharp fa-solid fa-bell fa-shake"></i> Notifications</li>
             <li><a href="{{url('/create_course')}}"><i class="fa-solid fa-plus"></i> Create Course</li>
