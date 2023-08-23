@@ -224,9 +224,7 @@ class UserController extends Controller
             $req->profile_picture->move('assets/profile_pictures', $pfp_name);
             $data->profile_picture=$pfp_name;
         }
-        else{
-
-        }
+        
 
         
         // $pfp_name= Auth::user()->name.'_'.time().'.'.$profile_picture->getClientOriginalExtension();
