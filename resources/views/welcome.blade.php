@@ -26,8 +26,8 @@
     <nav id="navbar">
         <div class="container">
             <ul>
-                <a class="w_signup" href="{{url('/about_us')}}">About Us</a>
-                <a class="e_signup" href="{{url('/login_admin')}}">Admin</a>
+                <!-- <a class="w_signup" href="{{url('/about_us')}}">About Us</a> -->
+                <!-- <a class="e_signup" href="{{url('/login_admin')}}">Admin</a> -->
                 <a class="w_login" href="{{url('/signup')}}">Sign Up</a>
                 <a class="e_login" href="{{url('/login')}}">Log In</a>
             </ul>
@@ -42,19 +42,19 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/chef.jpg" class="d-block w-100" alt="...">
+                <img src="images/f1-Page-2.drawio.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/driver.jpg" class="d-block w-100" alt="...">
+                <img src="images/f1-Page-3.drawio.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/gardener.jpg" class="d-block w-100" alt="...">
+                <img src="images/f3.drawio.png.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/delivery.jpg" class="d-block w-100" alt="...">
+                <img src="images/f1-Page-2.drawio.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/slide5.jpg" class="d-block w-100" alt="...">
+                <img src="images/pic1.drawio.png" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

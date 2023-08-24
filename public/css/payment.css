@@ -1,0 +1,311 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: system-ui;
+    
+
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+   
+}
+  
+#main-header{
+    padding: 16px;
+    padding-right: 1300px;
+    text-align: left;
+    background-color: #538cc6;
+    color: #fff;
+}
+
+body{
+    background-color: white;
+    color: rgb(58, 58, 58);
+    overflow: hidden;
+    
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-right: 2px solid rgb(222, 222, 222);
+ 
+}
+
+.wrapper .sidebar h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+.wrapper .sidebar ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.wrapper .sidebar ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.wrapper .sidebar ul li a .fa-solid{
+    /* width: 200px; */
+
+}
+
+.wrapper .sidebar ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+/* .wrapper .sidebar ul li:hover a{
+    background: rgb(0, 0, 0);
+} */
+
+
+.main_content{
+    float:left;
+    
+    margin-left: 320px;
+    
+    width:1217px;
+    height: 670px;
+    position: relative;
+    overflow: auto;
+    padding-bottom: 40px;
+    
+    
+}
+
+/* .main_content{
+    float:left;
+   
+    margin-left: 300px;
+    
+    padding-right: 40px;
+    position: relative;
+  
+    
+    
+} */
+
+.feed{
+    float:left;
+    height: 670px;
+    overflow: auto;
+    position: relative;
+  
+    padding:40px;
+    
+    
+}
+
+table{
+    border-spacing: 8px;   
+    padding-right: 20px;
+}
+
+
+
+.pfp_box{
+    float: left;
+   
+}
+
+.details_box{
+    float:right;
+    margin-right: 60px;
+    margin-left: 40px;
+    width: 580px;
+    color: rgb(58, 58, 58);
+}
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.institute{
+    
+}
+
+
+.info_class{
+    display: flex;
+    position: relative;
+    overflow: auto;
+
+   
+}
+
+.info_class .info{
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color:#ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    border-left: 2px solid rgb(222, 222, 222);
+    overflow: auto;
+}
+
+.info_class .info h2{
+    color:rgb(58, 58, 58);
+    /* text-transform: uppercase; */
+    text-align: left;
+    margin-bottom: 20px;
+   
+}
+
+
+.info_class .info ul li{
+    padding: 6px;
+    border-bottom: 2px solid rgb(222, 222, 222);
+
+
+}
+
+.info_class .info ul li a{
+    color:rgb(76, 76, 76);
+    display: block;
+
+}
+
+.info_class .info ul li:hover{
+    background: rgb(222, 222, 222);
+}
+
+.table{
+    width:810px;
+
+    position: relative;
+    overflow: auto;
+    margin-top: 20px;
+    /* display:table-header-group; */
+    display: unset;
+    
+  
+}
+
+.table_allign{
+    margin-top: 20px;
+    padding-right: 20px;
+    
+}
+
+input, select {
+	display: block;
+	border: 2px solid #ccc;
+	width: 220px;
+	padding: 8px;
+	margin: 5px auto;
+
+}
+
+button {
+   
+	background: #979797;
+	padding: 10px 15px;
+	color: #fff;
+
+	margin-right: 30px;
+	border: none;
+  
+}
+button:hover{
+	
+	background: #538cc6;
+	color: #fff;
+}
+
+.reset{
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 11px;
+}
+
+.links{
+    margin-left: 676px;
+    font-size: 12px;
+    padding-bottom: 40px;
+}
+
+th{
+    background-color: rgb(222, 222, 222);
+    padding: 10px;
+}
+
+.search_bar{
+  
+}
+
+.course_find{
+    display: block;
+	border: 2px solid #ccc;
+	width: 1130px;
+	padding: 8px;
+	margin: 5px auto;
+    margin-right: 94px;
+    margin-left: 12px;
+
+}
+
+.search_box{
+    margin-top: 20px;
+}
+
+.actions{
+   
+	
+    text-decoration: none;
+	background: #bcbcbc;
+	padding: 10px 15px;
+	color: #fff;
+    width: 90px;
+    font-weight: bold;
+
+	margin-right: 30px;
+	border: none;
+  
+}
+.actions:hover{
+	
+	background: #538cc6;
+	color: #fff;
+}
+
+
+
+.main_box{
+    border: 1px solid grey;
+    margin-top: 140px;
+    margin-left: 500px;
+    padding: 40px;
+    width: 500px;
+
+}
+
+.pay td{
+    padding: 2px;
+}

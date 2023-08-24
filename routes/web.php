@@ -79,7 +79,13 @@ Route::post('update_profile', [UserController::class, 'update_data']);
 
 Route::get('edit_content/{id}', [ContentController::class, 'show_data']);
 
+
+
 Route::post('edit_content', [ContentController::class, 'update_data']);
+
+// Route::get('edit_course_content/{id}', [ContentController::class, 'show_data']);
+
+// Route::post('edit_course_content', [ContentController::class, 'update_data']);
 
 Route::get("view_users", [UserController::class, 'fetch_user']);
 

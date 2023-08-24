@@ -43,7 +43,7 @@
 
     
 
-        <table>
+        <table border = 1>
             <th>
                 Notification
             </th>

@@ -1,6 +1,16 @@
-<html>
-<h1>Update Profile</h1>
-<a class="e_login" href="{{url('profile_user')}}">Home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/update_profile.css">
+    <title>Upload Content</title>
+</head>
+<body>
+
+
+<div class="whole">
 
 
 <form action="{{url('/update_profile')}}" method="post" class="form_box" enctype="multipart/form-data">
@@ -30,5 +40,17 @@
     <button type="submit">Update</button>
 
 </form>
+
+<!-- <a href="{{url('/profile_user')}}"><label class="back">Go back</label></a> -->
+
+</div>
+
+<div class ="pic">
+
+</div>
+
+</div>
+
+</body>
 
 </html>

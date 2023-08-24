@@ -1,8 +1,20 @@
-<html>
-<h1>course content upload</h1>
-<a class="e_login" href="{{url('profile_user')}}">Home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/upload_content.css">
+    <title>Upload Content</title>
+</head>
+<body>
 
-{{$course_id}}
+
+<div class="whole">
+
+<div class="form">
+
+
 
 <form action="{{url('/course_content_upload_backend/'.$course_id)}}" method="post" enctype="multipart/form-data">
 
@@ -14,5 +26,18 @@
 
 <form>
 
+<a href="{{url('/profile_user')}}"><label class="back">Go back</label></a>
+
+</div>
+
+<div class ="pic">
+
+</div>
+
+</div>
+
+</body>
+
 </html>
+
 

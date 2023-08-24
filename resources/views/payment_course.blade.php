@@ -1,12 +1,21 @@
-<html>
-<h1>
-payment
-</h1>
-<a class="e_login" href="{{url('profile_user')}}">Home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/payment.css">
+    <title>Profile Info</title>
+</head>
+<body>
+
+
 <?php
 $c_id = '';
 
 ?>
+
+<div class="main_box">
 
 <table>
 
@@ -35,28 +44,32 @@ $c_id = '';
 
 <br>
 
-<table>
-<td>
+<table class="pay">
+
     <tr>
         <lable>Please choose one of the mentioned payment options</label>
         <td>
-        <input style="cursor: pointer;" type="radio" id="male" name="gender" value="Male">
+        <input  type="radio" id="male" name="gender" value="Male">
         </td>
         <td>
         <label for="male">Bkash</label>
         </td>
+</tr><tr>
         <td>
-        <input style="cursor: pointer" type="radio" id="female" name="gender" value="Female">
+        <input  type="radio" id="female" name="gender" value="Female">
         </td>
         <td>
         <label for="female">Nagad</label>
         </td>
+        </tr>
+        <tr>
         <td>
-        <input style="cursor: pointer;" type="radio" id="others" name="gender" value="Others">
+        <input  type="radio" id="others" name="gender" value="Others">
         </td>
         <td>
-        <label style="cursor: pointer" for="others">Rocket</label>
+        <label for="others">Rocket</label>
         </td>
+        </tr>
     </tr>
 </table>
 
@@ -66,4 +79,7 @@ $c_id = '';
     <button type="button">Pay</button>   
 </a>
 
+</div>
+
+</body>
 </html>
